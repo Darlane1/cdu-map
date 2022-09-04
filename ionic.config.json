@@ -1,0 +1,8 @@
+{
+  "name": "CDU Map",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react",
+  "id": "1f081cfb"
+}
