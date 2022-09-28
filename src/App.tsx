@@ -55,15 +55,15 @@ const App: React.FC = () => (
           </Route>
         </IonRouterOutlet>
         <IonTabBar slot="bottom">
-          <IonTabButton tab="tab1" href="/Map">
+          <IonTabButton tab="tab1" href="/tab1">
             <IonIcon icon={map} />
             <IonLabel>Map</IonLabel>
           </IonTabButton>
-          <IonTabButton tab="tab2" href="/Search">
+          <IonTabButton tab="tab2" href="/tab2">
             <IonIcon icon={search} />
             <IonLabel>Search</IonLabel>
           </IonTabButton>
-          <IonTabButton tab="tab3" href="/Calender">
+          <IonTabButton tab="tab3" href="/tab3">
             <IonIcon icon={calendar} />
             <IonLabel>Time Table</IonLabel>
           </IonTabButton>
