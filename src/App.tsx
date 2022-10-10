@@ -6,8 +6,10 @@ import {
   IonRouterOutlet,
   IonTabBar,
   IonTabButton,
+  IonSearchbar,
   IonTabs,
   setupIonicReact
+  
 } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
 import { calendar, map, search} from 'ionicons/icons';
@@ -65,7 +67,7 @@ const App: React.FC = () => (
           </IonTabButton>
           <IonTabButton tab="tab3" href="/tab3">
             <IonIcon icon={calendar} />
-            <IonLabel>Time Table</IonLabel>
+            <IonLabel>TimeTable</IonLabel>
           </IonTabButton>
         </IonTabBar>
       </IonTabs>
