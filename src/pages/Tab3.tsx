@@ -1,5 +1,4 @@
 import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/react';
-import { trashBin } from 'ionicons/icons';
 import ExploreContainer from '../components/ExploreContainer';
 import './Tab3.css';
 
@@ -8,7 +7,7 @@ const Tab3: React.FC = () => {
     <IonPage>
       <IonHeader>
         <IonToolbar>
-          <IonTitle>TimeTable</IonTitle>
+          <IonTitle class="ion-text-center">TimeTable</IonTitle>
         </IonToolbar>
       </IonHeader>
 

@@ -1,6 +1,9 @@
 {
-  "short_name": "Ionic App",
-  "name": "My Ionic App",
+  "short_name": "CDUMap",
+  "name": "Charles Darwin University Map",
+  "description":"Web application that helps you navigate around the charles darwin university campus",
+  "version":"0.1",
+  "orientation":"portrait",
   "icons": [
     {
       "src": "assets/icon/favicon.png",
