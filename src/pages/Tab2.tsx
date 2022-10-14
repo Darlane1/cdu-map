@@ -20,8 +20,8 @@ const Tab2: React.FC = () => {
                 <IonList>
                 <IonItem>
                   <IonSelect interface= "popover" placeholder = "Select Test">
-                    <IonSelectOption value = "testoption">This is a test option</IonSelectOption>
-                    <IonSelectOption value = "testoption">This is another option</IonSelectOption>
+                    <IonSelectOption value = "testoption">This is a test option holder</IonSelectOption>
+                    <IonSelectOption value = "testoption">This is another option holder</IonSelectOption>
                   </IonSelect>
                 </IonItem>
               </IonList>
