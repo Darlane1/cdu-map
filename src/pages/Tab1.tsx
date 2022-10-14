@@ -2,6 +2,9 @@ import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/rea
 import ExploreContainer from '../components/ExploreContainer';
 import './Tab1.css';
 
+//testing geolocation from capacitor but so far not working
+//import {Geolocation} from '@capacitor/geolocation';
+
 const Tab1: React.FC = () => {
   return (
     <IonPage>

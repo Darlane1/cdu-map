@@ -19,9 +19,9 @@ const Tab2: React.FC = () => {
         <IonCol>
                 <IonList>
                 <IonItem>
-                  <IonSelect interface= "popover" placeholder = "Select Test">
-                    <IonSelectOption value = "testoption">This is a test option</IonSelectOption>
-                    <IonSelectOption value = "testoption">This is another option</IonSelectOption>
+                  <IonSelect interface= "popover" placeholder = "Colour">
+                    <IonSelectOption value = "Red">This is a test option</IonSelectOption>
+                    <IonSelectOption value = "Yellow">This is another option</IonSelectOption>
                   </IonSelect>
                 </IonItem>
               </IonList>
@@ -29,17 +29,14 @@ const Tab2: React.FC = () => {
         <IonCol>
                 <IonList>
                 <IonItem>
-                  <IonSelect interface= "popover" placeholder = "Select Test 2">
-                    <IonSelectOption value = "testoption">This is a test option</IonSelectOption>
+                  <IonSelect interface= "popover" placeholder = "Course Code">
+                    <IonSelectOption value = "Information Technology">This is a test option</IonSelectOption>
                   </IonSelect>
                 </IonItem>
               </IonList>
         </IonCol>
       </IonRow>
     </IonGrid>
-
-
-
 
         <IonHeader collapse="condense">
           <IonToolbar>

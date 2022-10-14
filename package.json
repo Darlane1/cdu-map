@@ -3,8 +3,10 @@
   "version": "0.0.1",
   "private": true,
   "dependencies": {
+    "@awesome-cordova-plugins/firebase": "^5.46.0",
+    "@awesome-cordova-plugins/sqlite": "^5.46.0",
     "@capacitor/app": "4.0.1",
-    "@capacitor/core": "4.1.0",
+    "@capacitor/core": "^4.1.0",
     "@capacitor/haptics": "4.0.1",
     "@capacitor/keyboard": "4.0.1",
     "@capacitor/status-bar": "4.0.1",
@@ -19,6 +21,9 @@
     "@types/react-dom": "^18.0.6",
     "@types/react-router": "^5.1.11",
     "@types/react-router-dom": "^5.1.7",
+    "cordova-plugin-firebase": "^2.0.5",
+    "cordova-sqlite-storage": "^6.0.0",
+    "firebase": "^9.12.1",
     "ionicons": "^6.0.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
@@ -65,7 +70,7 @@
     ]
   },
   "devDependencies": {
-    "@capacitor/cli": "4.1.0"
+    "@capacitor/cli": "^4.1.0"
   },
   "description": "An Ionic project"
 }
