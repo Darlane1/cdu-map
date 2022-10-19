@@ -22,6 +22,7 @@ const Tab2: React.FC = () => {
                   <IonSelect interface= "popover" placeholder = "Colour">
                     <IonSelectOption value = "Red">This is a test option</IonSelectOption>
                     <IonSelectOption value = "Yellow">This is another option</IonSelectOption>
+                    <IonSelectOption value = "Blue">This is a third option</IonSelectOption>
                   </IonSelect>
                 </IonItem>
               </IonList>
