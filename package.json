@@ -23,6 +23,7 @@
     "@types/react-router-dom": "^5.1.7",
     "cordova-plugin-firebase": "^2.0.5",
     "cordova-sqlite-storage": "^6.0.0",
+    "env-cmd": "^10.1.0",
     "firebase": "^9.12.1",
     "ionicons": "^6.0.3",
     "react": "^18.2.0",

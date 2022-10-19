@@ -1,4 +1,4 @@
-import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/react';
+import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonItem, IonGrid , IonRow, IonCol,  } from '@ionic/react';
 import ExploreContainer from '../components/ExploreContainer';
 import './Tab1.css';
 
@@ -13,6 +13,19 @@ const Tab1: React.FC = () => {
           <IonTitle class="ion-text-center">Map</IonTitle>
         </IonToolbar>
       </IonHeader>
+
+
+    <IonGrid>
+      <IonRow>
+        <IonCol>
+          <IonItem>
+            There should be a map here
+          </IonItem>
+        </IonCol>
+      </IonRow>
+    </IonGrid>
+
+
       <IonContent fullscreen>
         <IonHeader collapse="condense">
           <IonToolbar>

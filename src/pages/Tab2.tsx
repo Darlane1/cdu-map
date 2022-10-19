@@ -31,7 +31,7 @@ const Tab2: React.FC = () => {
                 <IonList>
                 <IonItem>
                   <IonSelect interface= "popover" placeholder = "Course Code">
-                    <IonSelectOption value = "Information Technology">This is a test option</IonSelectOption>
+                    <IonSelectOption value = "IT">This is a test option</IonSelectOption>
                   </IonSelect>
                 </IonItem>
               </IonList>

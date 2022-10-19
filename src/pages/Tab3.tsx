@@ -7,7 +7,7 @@ const Tab3: React.FC = () => {
     <IonPage>
       <IonHeader>
         <IonToolbar>
-          <IonTitle class="ion-text-center">TimeTable</IonTitle>
+          <IonTitle class="ion-text-center">Timetable</IonTitle>
         </IonToolbar>
       </IonHeader>
 

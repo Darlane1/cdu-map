@@ -13,6 +13,9 @@ import {
 } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
 import { calendar, map, search} from 'ionicons/icons';
+
+
+
 import Tab1 from './pages/Tab1';
 import Tab2 from './pages/Tab2';
 import Tab3 from './pages/Tab3';
@@ -35,6 +38,25 @@ import '@ionic/react/css/display.css';
 
 /* Theme variables */
 import './theme/variables.css';
+
+
+/*Firebase*/
+import  {initializeApp}  from 'firebase/app';
+
+
+/*https://www.youtube.com/watch?v=-RtrbNJxOfQ&ab_channel=DanielHampikian*/
+const FirebaseConfig = {
+  apiKey: "AIzaSyC-5UY81CFD6qvKMlZGO02sIVpvfvXOv-c",
+  authDomain: "cdumap.firebaseapp.com",
+  projectId: "cdumap",
+  storageBucket: "cdumap.appspot.com",
+  messagingSenderId: "174709894113",
+  appId: "1:174709894113:web:e31896f80f0a6e3c7180a0",
+  measurementId: "G-F4G0HG9H7N"
+};
+
+initializeApp(FirebaseConfig);
+
 
 setupIonicReact();
 
