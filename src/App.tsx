@@ -43,7 +43,6 @@ import './theme/variables.css';
 /*Firebase*/
 import  {initializeApp}  from 'firebase/app';
 
-
 /*https://www.youtube.com/watch?v=-RtrbNJxOfQ&ab_channel=DanielHampikian*/
 const FirebaseConfig = {
   apiKey: "AIzaSyC-5UY81CFD6qvKMlZGO02sIVpvfvXOv-c",
@@ -55,7 +54,7 @@ const FirebaseConfig = {
   measurementId: "G-F4G0HG9H7N"
 };
 
-initializeApp(FirebaseConfig);
+const cdubase = initializeApp(FirebaseConfig);
 
 
 setupIonicReact();
