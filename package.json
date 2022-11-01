@@ -26,6 +26,7 @@
     "env-cmd": "^10.1.0",
     "firebase": "^9.12.1",
     "ionicons": "^6.0.3",
+    "leaflet": "^1.9.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router": "^5.2.0",
