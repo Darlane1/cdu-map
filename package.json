@@ -5,10 +5,13 @@
   "dependencies": {
     "@awesome-cordova-plugins/firebase": "^5.46.0",
     "@awesome-cordova-plugins/sqlite": "^5.46.0",
+    "@capacitor/android": "^4.4.0",
     "@capacitor/app": "4.0.1",
-    "@capacitor/core": "^4.1.0",
+    "@capacitor/core": "^4.4.0",
+    "@capacitor/geolocation": "^4.0.1",
     "@capacitor/google-maps": "^4.3.0",
     "@capacitor/haptics": "4.0.1",
+    "@capacitor/ios": "^4.4.0",
     "@capacitor/keyboard": "4.0.1",
     "@capacitor/status-bar": "4.0.1",
     "@ionic/react": "^6.0.0",
@@ -72,7 +75,7 @@
     ]
   },
   "devDependencies": {
-    "@capacitor/cli": "^4.1.0",
+    "@capacitor/cli": "^4.4.0",
     "react-scripts": "5.0.1"
   },
   "description": "An Ionic project"
