@@ -2,9 +2,14 @@ import { IonContent, IonHeader, IonPage, IonSearchbar, IonTitle, IonToolbar, Ion
 import { connectFunctionsEmulator } from 'firebase/functions';
 import { trashBin } from 'ionicons/icons';
 import ExploreContainer from '../components/ExploreContainer';
+//not working// import AppComponents from '../components/AppComponents';
 import './Tab2.css';
+import React from 'react';
 
-
+//javascript
+function buttonClick(){
+  alert('Hi!')
+}
 
 //Pages are split into a 12 column grid//
 const Tab2: React.FC = () => {
@@ -20,50 +25,51 @@ const Tab2: React.FC = () => {
         <IonHeader collapse="condense">
         </IonHeader>
 
+        <ExploreContainer name="Search" />
     
-    <IonGrid>
-      <IonRow>
-        <IonCol></IonCol>
-        <IonCol size="10">
-          <IonSearchbar showClearButton='always' clear-icon={trashBin}></IonSearchbar>
-        </IonCol>
-        <IonCol></IonCol>
-      </IonRow>
+        <IonGrid>
+          <IonRow>
+            <IonCol></IonCol>
+            <IonCol size="10">
+              <IonSearchbar showClearButton='always' clear-icon={trashBin}></IonSearchbar>
+            </IonCol>
+            <IonCol></IonCol>
+          </IonRow>
 
-      <IonRow>
-        <IonCol></IonCol>
-        <IonCol size = "5">
-                <IonList>
-                <IonItem>
-                  <IonSelect interface= "popover" placeholder = "Colour">
-                    <IonSelectOption value = "Red">This is a test option</IonSelectOption>
-                    <IonSelectOption value = "Yellow">This is another option</IonSelectOption>
-                    <IonSelectOption value = "Blue">This is a third option</IonSelectOption>
-                  </IonSelect>
-                </IonItem>
-              </IonList>
-        </IonCol>
-        <IonCol size = "5">
-                <IonList>
-                <IonItem>
-                  <IonSelect interface= "popover" placeholder = "Course Code">
-                    <IonSelectOption value = "IT">This is a test option</IonSelectOption>
-                  </IonSelect>
-                </IonItem>
-              </IonList>
-        </IonCol>
-        <IonCol></IonCol>
-      </IonRow>
+          <IonRow>
+            <IonCol></IonCol>
+            <IonCol size = "5">
+                    <IonList>
+                    <IonItem>
+                      <IonSelect interface= "popover" placeholder = "Colour">
+                        <IonSelectOption value = "Red">This is a test option</IonSelectOption>
+                        <IonSelectOption value = "Yellow">This is another option</IonSelectOption>
+                        <IonSelectOption value = "Blue">This is a third option</IonSelectOption>
+                      </IonSelect>
+                    </IonItem>
+                  </IonList>
+            </IonCol>
+            <IonCol size = "5">
+                    <IonList>
+                    <IonItem>
+                      <IonSelect interface= "popover" placeholder = "Course Code">
+                        <IonSelectOption value = "IT">This is a test option</IonSelectOption>
+                      </IonSelect>
+                    </IonItem>
+                  </IonList>
+            </IonCol>
+            <IonCol></IonCol>
+          </IonRow>
 
-      <IonRow>
-      <IonCol></IonCol>
-        <IonCol size="10" class="ion-text-center">
-          <IonButton >This is a button</IonButton>
-        </IonCol>
-        <IonCol></IonCol>
-      </IonRow>
+          <IonRow>
+          <IonCol></IonCol>
+            <IonCol size="10" class="ion-text-center">
+              <IonButton onClick={buttonClick}>This is a button</IonButton>
+            </IonCol>
+            <IonCol></IonCol>
+          </IonRow>
 
-      <IonRow id="cards">
+      <IonRow id="searchResult" style={{display:"none"}}>
         <IonCol>
           <h1>TEST</h1>
         </IonCol>
@@ -72,9 +78,6 @@ const Tab2: React.FC = () => {
     </IonGrid>
 
 
-
-
-        <ExploreContainer name="Search" />
       </IonContent>
     </IonPage>
   );

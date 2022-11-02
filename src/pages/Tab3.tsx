@@ -1,4 +1,4 @@
-import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/react';
+import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonDatetime, IonGrid, IonRow, IonCol, IonItem } from '@ionic/react';
 import ExploreContainer from '../components/ExploreContainer';
 import './Tab3.css';
 
@@ -17,9 +17,23 @@ const Tab3: React.FC = () => {
             <IonTitle size="large">Tab 3</IonTitle>
           </IonToolbar>
         </IonHeader>
+        <ExploreContainer name="Timetable"></ExploreContainer>
+
+        <IonGrid>
+          <IonRow>
+            <IonCol></IonCol>
+            <IonCol size='10'>
+              
+                <IonDatetime></IonDatetime>
+                
+                </IonCol>
+            <IonCol></IonCol>
+          </IonRow>
+        </IonGrid>
         
-        <ExploreContainer name="Timetable" />
       </IonContent>
+    
+
     </IonPage>
   );
 };

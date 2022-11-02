@@ -60,6 +60,7 @@ const cdubase = initializeApp(FirebaseConfig);
 setupIonicReact();
 
 const App: React.FC = () => (
+  
   <IonApp>
     <IonReactRouter>
       <IonTabs>

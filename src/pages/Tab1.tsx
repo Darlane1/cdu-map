@@ -18,22 +18,22 @@ const Tab1: React.FC = () => {
       <IonContent fullscreen>
         <IonHeader collapse="condense">
           <IonToolbar>
-            
           </IonToolbar>
         </IonHeader>
+
         <ExploreContainer name="Map" />
+        <IonGrid>
+          <IonRow>
+            <IonCol></IonCol>
+            <IonCol size='10'>
+              <IonItem>
+                There should be a map here
+              </IonItem>
+            </IonCol>
+            <IonCol></IonCol>
+          </IonRow>
+        </IonGrid>
       </IonContent>
-
-    <IonGrid>
-      <IonRow>
-        <IonCol>
-          <IonItem>
-            There should be a map here
-          </IonItem>
-        </IonCol>
-      </IonRow>
-    </IonGrid>
-
     </IonPage>
   );
 };
