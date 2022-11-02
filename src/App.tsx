@@ -1,3 +1,11 @@
+
+
+import { useState, useEffect } from "react";
+/* import "./App.css"; */
+import { db } from "./firebase";
+import { collection, getDocs } from "firebase/firestore";
+
+
 import { Redirect, Route } from 'react-router-dom';
 import {
   IonApp,
@@ -9,11 +17,10 @@ import {
   IonSearchbar,
   IonTabs,
   setupIonicReact
-  
+
 } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
 import { calendar, map, search} from 'ionicons/icons';
-
 
 
 import Tab1 from './pages/Tab1';
@@ -96,5 +103,19 @@ const App: React.FC = () => (
     </IonReactRouter>
   </IonApp>
 );
+
+/* function App1() {
+  
+   
+  useEffect(() => {
+    const getUsers = async () =>  {
+      const data = await getDocs(usersCollectionRef);
+      console.log(data);
+    };
+
+    getUsers();
+  }, []);
+
+}*/
 
 export default App;

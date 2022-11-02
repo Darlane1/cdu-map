@@ -5,10 +5,21 @@ import ExploreContainer from '../components/ExploreContainer';
 //not working// import AppComponents from '../components/AppComponents';
 import './Tab2.css';
 import React from 'react';
+import { collection, where, doc, getDoc, getDocs, query, setDoc } from "firebase/firestore";
+import { db } from '../firebase';
+
+
 
 //javascript
-function buttonClick(){
-  alert('Hi!')
+async function buttonClick(){
+  const querySnapshot = await getDocs(collection(db,"cdu-unit-timetables"));
+querySnapshot.forEach((doc) => {
+    console.log(doc.id, " => ", doc.data())
+});
+
+
+  /*alert('Hi!')*/
+
 }
 
 //Pages are split into a 12 column grid//
@@ -42,8 +53,8 @@ const Tab2: React.FC = () => {
                     <IonList>
                     <IonItem>
                       <IonSelect interface= "popover" placeholder = "Colour">
-                        <IonSelectOption value = "Red">This is a test option</IonSelectOption>
-                        <IonSelectOption value = "Yellow">This is another option</IonSelectOption>
+                        <IonSelectOption value = "Red">This is a dumb option</IonSelectOption>
+                        <IonSelectOption value = "Yellow">Thi s is another option</IonSelectOption>
                         <IonSelectOption value = "Blue">This is a third option</IonSelectOption>
                       </IonSelect>
                     </IonItem>
@@ -68,7 +79,6 @@ const Tab2: React.FC = () => {
             </IonCol>
             <IonCol></IonCol>
           </IonRow>
-
       <IonRow id="searchResult" style={{display:"none"}}>
         <IonCol>
           <h1>TEST</h1>
