@@ -4,7 +4,7 @@ import App from "../App";
 function AppComponents(){
 
   function buttonClick(){
-    alert('Hi!')
+    alert('Hiiii!')
   }
 
 }
