@@ -12,18 +12,16 @@ import { db } from '../firebase';
 
 //javascript
 async function buttonClick(){
-  const querySnapshot = await getDocs(collection(db,"cdu-unit-timetables"));
-querySnapshot.forEach((doc) => {
+  const querySnapshot = await getDocs(collection(db,"unit"));
+  querySnapshot.forEach((doc) => {
     console.log(doc.id, " => ", doc.data())
 });
+} 
 
-
-  /*alert('Hi!')*/
-
-}
 
 //Pages are split into a 12 column grid//
 const Tab2: React.FC = () => {
+
   return (
     <IonPage>
       <IonHeader>

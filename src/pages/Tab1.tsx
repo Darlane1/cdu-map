@@ -3,6 +3,7 @@ import ExploreContainer from '../components/ExploreContainer';
 import './Tab1.css';
 import {getFunctions, httpsCallable} from "firebase/functions";
 
+
 //testing geolocation from capacitor but so far not working
 //import {Geolocation} from '@capacitor/geolocation';
 
@@ -31,6 +32,9 @@ const Tab1: React.FC = () => {
               </IonItem>
             </IonCol>
             <IonCol></IonCol>
+          </IonRow>
+          <IonRow>
+            <IonCol class={"ion-text-center"}>Placeholder</IonCol>
           </IonRow>
         </IonGrid>
       </IonContent>

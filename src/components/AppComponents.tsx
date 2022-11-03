@@ -9,4 +9,4 @@ function AppComponents(){
 
 }
 
-  export default AppComponents;
+  export default AppComponents();

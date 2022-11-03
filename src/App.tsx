@@ -1,5 +1,3 @@
-
-
 import { useState, useEffect } from "react";
 /* import "./App.css"; */
 import { db } from "./firebase";
@@ -45,7 +43,7 @@ import '@ionic/react/css/display.css';
 
 /* Theme variables */
 import './theme/variables.css';
-
+import 'leaflet/dist/leaflet.css';
 
 /*Firebase*/
 import  {initializeApp}  from 'firebase/app';
@@ -103,19 +101,5 @@ const App: React.FC = () => (
     </IonReactRouter>
   </IonApp>
 );
-
-/* function App1() {
-  
-   
-  useEffect(() => {
-    const getUsers = async () =>  {
-      const data = await getDocs(usersCollectionRef);
-      console.log(data);
-    };
-
-    getUsers();
-  }, []);
-
-}*/
 
 export default App;
