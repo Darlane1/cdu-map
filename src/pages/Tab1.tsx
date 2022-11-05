@@ -3,10 +3,6 @@ import ExploreContainer from '../components/ExploreContainer';
 import './Tab1.css';
 import {getFunctions, httpsCallable} from "firebase/functions";
 
-import { MapContainer, TileLayer, useMap } from 'react-leaflet'
-
-
-
 
 //testing geolocation from capacitor but so far not working
 //import {Geolocation} from '@capacitor/geolocation';
@@ -33,7 +29,6 @@ const Tab1: React.FC = () => {
             <IonCol size='10'>
               <IonItem>
                 There should be a map here
-                
               </IonItem>
             </IonCol>
             <IonCol></IonCol>
