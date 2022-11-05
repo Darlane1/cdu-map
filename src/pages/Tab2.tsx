@@ -1,8 +1,8 @@
-import { IonContent, IonHeader, IonPage, IonSearchbar, IonTitle, IonToolbar, IonList, IonItem ,IonSelect, IonSelectOption, IonGrid, IonRow, IonCol, IonButton,  IonCard, IonCardContent } from '@ionic/react';
+import { IonContent, IonHeader, IonPage, IonSearchbar, IonTitle, IonToolbar, IonList, IonItem ,IonSelect, IonSelectOption, IonGrid, IonRow, IonCol, IonButton,  IonCard, IonCardContent, IonCardHeader, IonCardTitle, IonCardSubtitle } from '@ionic/react';
 import { connectFunctionsEmulator } from 'firebase/functions';
 import { trashBin } from 'ionicons/icons';
 import ExploreContainer from '../components/ExploreContainer';
-//not working// import AppComponents from '../components/AppComponents';
+import AppComponents from '../components/AppComponents';
 import './Tab2.css';
 import React from 'react';
 import { collection, where, doc, getDoc, getDocs, query, setDoc } from "firebase/firestore";
@@ -30,7 +30,7 @@ const Tab2: React.FC = () => {
         </IonToolbar>
       </IonHeader>
       <IonContent fullscreen>
-
+      {/**Really not sure what the below does? */}
         <IonHeader collapse="condense">
         </IonHeader>
 
@@ -50,10 +50,11 @@ const Tab2: React.FC = () => {
             <IonCol size = "5">
                     <IonList>
                     <IonItem>
-                      <IonSelect interface= "popover" placeholder = "Colour">
-                        <IonSelectOption value = "Red">This is a dumb option</IonSelectOption>
-                        <IonSelectOption value = "Yellow">Thi s is another option</IonSelectOption>
-                        <IonSelectOption value = "Blue">This is a third option</IonSelectOption>
+                      {/*Should work with firebase data and do a foreach loop and https://ionicframework.com/docs/api/select*/}
+                      <IonSelect id="unit" interface= "popover" placeholder = "Unit">
+                        <IonSelectOption value = "1">HIT401</IonSelectOption>
+                        <IonSelectOption value = "2">HIT333</IonSelectOption>
+                        <IonSelectOption value = "3">HIT372</IonSelectOption>
                       </IonSelect>
                     </IonItem>
                   </IonList>
@@ -61,8 +62,9 @@ const Tab2: React.FC = () => {
             <IonCol size = "5">
                     <IonList>
                     <IonItem>
-                      <IonSelect interface= "popover" placeholder = "Course Code">
-                        <IonSelectOption value = "IT">This is a test option</IonSelectOption>
+                      {/*Should work with firebase data and do a foreach loop */}
+                      <IonSelect id="lecturer" interface= "popover" placeholder = "Lecturer">
+                        <IonSelectOption value = "IT">Cat Kutay</IonSelectOption>
                       </IonSelect>
                     </IonItem>
                   </IonList>
@@ -77,13 +79,83 @@ const Tab2: React.FC = () => {
             </IonCol>
             <IonCol></IonCol>
           </IonRow>
+
+{/*Temporary trying to get onclick event to work */}
       <IonRow id="searchResult" style={{display:"none"}}>
         <IonCol>
           <h1>TEST</h1>
         </IonCol>
       </IonRow>
+{/*Placeholder. Should be a foreach loop from firebase and work with the results from filter or search bar */}
+<IonRow>
+  <IonCol></IonCol>
+  <IonCol size="3.5">
+    <IonCard>
+      <IonCardHeader>
+        <IonCardTitle>This is a title</IonCardTitle>
+        <IonCardContent>This is the card content</IonCardContent>
+        <IonCardSubtitle>This is the card subtitle</IonCardSubtitle>
+      </IonCardHeader>
+    </IonCard>
+    </IonCol>
+    <IonCol size="3.5">
+    <IonCard>
+      <IonCardHeader>
+        <IonCardTitle>This is a title</IonCardTitle>
+        <IonCardContent>This is the card content</IonCardContent>
+        <IonCardSubtitle>This is the card subtitle</IonCardSubtitle>
+      </IonCardHeader>
+    </IonCard>
+    </IonCol>
+    <IonCol size="3.5">
+    <IonCard>
+      <IonCardHeader>
+        <IonCardTitle>This is a title</IonCardTitle>
+        <IonCardContent>This is the card content</IonCardContent>
+        <IonCardSubtitle>This is the card subtitle</IonCardSubtitle>
+      </IonCardHeader>
+    </IonCard>
+    </IonCol>
+    <IonCol></IonCol>
+    </IonRow>
+{/*Second Row of cards. please remove if you need to */}
+    <IonRow>
+  <IonCol></IonCol>
+  <IonCol size="3.5">
+    <IonCard>
+      <IonCardHeader>
+        <IonCardTitle>This is a title</IonCardTitle>
+        <IonCardContent>This is the card content</IonCardContent>
+        <IonCardSubtitle>This is the card subtitle</IonCardSubtitle>
+      </IonCardHeader>
+    </IonCard>
+    </IonCol>
+    <IonCol size="3.5">
+    <IonCard>
+      <IonCardHeader>
+        <IonCardTitle>This is a title</IonCardTitle>
+        <IonCardContent>This is the card content</IonCardContent>
+        <IonCardSubtitle>This is the card subtitle</IonCardSubtitle>
+      </IonCardHeader>
+    </IonCard>
+    </IonCol>
+    <IonCol size="3.5">
+    <IonCard>
+      <IonCardHeader>
+        <IonCardTitle>This is a title</IonCardTitle>
+        <IonCardContent>This is the card content</IonCardContent>
+        <IonCardSubtitle>This is the card subtitle</IonCardSubtitle>
+      </IonCardHeader>
+    </IonCard>
+    </IonCol>
+    <IonCol></IonCol>
+    </IonRow>
+
+
+
 
     </IonGrid>
+    
 
 
       </IonContent>
