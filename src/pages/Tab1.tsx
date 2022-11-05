@@ -2,6 +2,9 @@ import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonItem, IonGrid 
 import ExploreContainer from '../components/ExploreContainer';
 import './Tab1.css';
 import {getFunctions, httpsCallable} from "firebase/functions";
+import { MapContainer, Marker, Popup, TileLayer } from 'react-leaflet';
+import * as L from 'leaflet';
+
 
 
 //testing geolocation from capacitor but so far not working
@@ -34,8 +37,23 @@ const Tab1: React.FC = () => {
             <IonCol></IonCol>
           </IonRow>
           <IonRow>
-            <IonCol class={"ion-text-center"}>Placeholder</IonCol>
+            <IonCol class={"ion-text-center"}><map id='leaflet-container'>
+            <MapContainer center={[-12.3717852, 130.8689199]} zoom={18} scrollWheelZoom={true}>
+              <TileLayer
+                attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+                url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+              />
+              <Marker position={[-12.3715952, 130.8689199]}>
+                <Popup>
+                  CDU  <br /> this is a marker
+                </Popup>
+              </Marker>
+            </MapContainer>
+            </map></IonCol>
           </IonRow>
+            <IonItem>
+              
+            </IonItem>
         </IonGrid>
       </IonContent>
     </IonPage>

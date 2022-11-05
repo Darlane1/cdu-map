@@ -2,7 +2,8 @@ import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonDatetime, IonG
 import ExploreContainer from '../components/ExploreContainer';
 import './Tab3.css';
 import {useMemo} from "react";
-import {GoogleMap, useLoadScript, Marker} from "@react-google-maps/api";
+
+
 
 {/*export default function Home(){
   const {} = useLoadScript({

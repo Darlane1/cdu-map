@@ -3,6 +3,9 @@ import { createRoot } from 'react-dom/client';
 import App from './App';
 import * as serviceWorkerRegistration from './serviceWorkerRegistration';
 import reportWebVitals from './reportWebVitals';
+import 'leaflet/dist/leaflet.css'
+
+
 
 //seriously unsure if i should be putting this here?
 import { initializeApp } from 'firebase/app';
@@ -14,3 +17,4 @@ root.render(
     <App />
   </React.StrictMode>
 );
+ 
