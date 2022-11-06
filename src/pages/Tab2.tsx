@@ -7,7 +7,7 @@ import './Tab2.css';
 import  { JSXElementConstructor, Key, ReactElement, ReactFragment, ReactPortal, useEffect, useState } from 'react';
 import { collection, where, doc, getDoc, getDocs, query, setDoc, onSnapshot } from "firebase/firestore";
 import { db } from '../firebase';
-
+import { getDatabase } from "firebase/database";
 
 
 async function buttonClick(){
@@ -49,16 +49,14 @@ const [units, setUnits] = useState<any>([]);
     
         <IonGrid>
           <IonRow>
-            <IonCol></IonCol>
-            <IonCol size="10">
+            <IonCol offset="1" size="10">
               <IonSearchbar showClearButton='always' clear-icon={trashBin}></IonSearchbar>
             </IonCol>
-            <IonCol></IonCol>
           </IonRow>
 
           <IonRow>
-            <IonCol></IonCol>
-            <IonCol size = "5">
+
+            <IonCol offset='1' size='5'>
                     <IonList>
                     <IonItem>
                       {/*Should work with firebase data and do a foreach loop and https://ionicframework.com/docs/api/select*/}
@@ -102,7 +100,6 @@ const [units, setUnits] = useState<any>([]);
                     </IonItem>
                   </IonList>
             </IonCol>
-            <IonCol></IonCol>
           </IonRow>
 
           <IonRow>
@@ -113,16 +110,26 @@ const [units, setUnits] = useState<any>([]);
             <IonCol></IonCol>
           </IonRow>
 
-{/*Temporary trying to get onclick event to work */}
-      <IonRow id="searchResult" style={{display:"none"}}>
-        <IonCol>
-          <h1>TEST</h1>
-        </IonCol>
-      </IonRow>
 {/*Placeholder. Should be a foreach loop from firebase and work with the results from filter or search bar */}
-<IonRow>
-  <IonCol></IonCol>
-  <IonCol size="3.5">
+<IonRow id="searchResult">
+{/*size = when the screen is below 576px, it will take up 12 columns. size-sm = size of coloumns it will take up when screen is more than 576px.
+ * A little broken though cause when the screen is below 576px, the offset is still there so the first row isn't aligned. */}
+  <IonCol id="trash" size="1"></IonCol>
+  <IonCol size="12" size-lg='3.3'>
+    <IonCard>
+      <IonCardHeader>
+        <IonCardTitle>HIT333 Cyber Security</IonCardTitle>
+        <IonCardContent>
+          Room: Example <br/> 
+          Lecturer: Example <br/>
+          Description: Example
+          </IonCardContent>
+        {/*<IonCardSubtitle>Lorem Ipsum</IonCardSubtitle>*/}
+        <IonButton>Take me there!</IonButton>
+      </IonCardHeader>
+    </IonCard>
+    </IonCol>
+    <IonCol size="12" size-lg='3.3'>
     <IonCard>
       <IonCardHeader>
         <IonCardTitle>This is a title</IonCardTitle>
@@ -141,9 +148,6 @@ const [units, setUnits] = useState<any>([]);
                   
 
 
-
-              
-
             </IonItem>
 
       </IonList>
@@ -151,30 +155,22 @@ const [units, setUnits] = useState<any>([]);
 
         </IonCardContent>
         <IonCardSubtitle>This is the card subtitle</IonCardSubtitle>
+        <IonButton>This is a button</IonButton>
       </IonCardHeader>
     </IonCard>
     </IonCol>
-    <IonCol size="3.5">
+    <IonCol size="12" size-lg='3.3'>
     <IonCard>
       <IonCardHeader>
         <IonCardTitle>This is a title</IonCardTitle>
         <IonCardContent>This is the card content</IonCardContent>
         <IonCardSubtitle>This is the card subtitle</IonCardSubtitle>
+        <IonButton>This is a button</IonButton>
       </IonCardHeader>
     </IonCard>
     </IonCol>
-    <IonCol size="3.5">
-    <IonCard>
-      <IonCardHeader>
-        <IonCardTitle>This is a title</IonCardTitle>
-        <IonCardContent>This is the card content</IonCardContent>
-        <IonCardSubtitle>This is the card subtitle</IonCardSubtitle>
-      </IonCardHeader>
-    </IonCard>
-    </IonCol>
-    <IonCol></IonCol>
-    </IonRow>
 
+    </IonRow>
     </IonGrid>
     
 
