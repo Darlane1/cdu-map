@@ -4,32 +4,24 @@ import { trashBin } from 'ionicons/icons';
 import ExploreContainer from '../components/ExploreContainer';
 import AppComponents from '../components/AppComponents';
 import './Tab2.css';
-import React,{useState,useEffect} from 'react';
+import React from 'react';
 import { collection, where, doc, getDoc, getDocs, query, setDoc } from "firebase/firestore";
 import { db } from '../firebase';
 
 
 
-
-  /*  const [units, setUnits] = useState("")
-  const [error, setError] = useState(false) */
-
-
+//javascript
 async function buttonClick(){
-
   const querySnapshot = await getDocs(collection(db,"unit"));
   querySnapshot.forEach((doc) => {
     console.log(doc.id, " => ", doc.data())
 });
-}
-
-
-
+} 
 
 
 //Pages are split into a 12 column grid//
 const Tab2: React.FC = () => {
-  
+
   return (
     <IonPage>
       <IonHeader>
@@ -126,6 +118,41 @@ const Tab2: React.FC = () => {
     </IonCol>
     <IonCol></IonCol>
     </IonRow>
+{/*Second Row of cards. please remove if you need to */}
+    <IonRow>
+  <IonCol></IonCol>
+  <IonCol size="3.5">
+    <IonCard>
+      <IonCardHeader>
+        <IonCardTitle>This is a title</IonCardTitle>
+        <IonCardContent>This is the card content</IonCardContent>
+        <IonCardSubtitle>This is the card subtitle</IonCardSubtitle>
+      </IonCardHeader>
+    </IonCard>
+    </IonCol>
+    <IonCol size="3.5">
+    <IonCard>
+      <IonCardHeader>
+        <IonCardTitle>This is a title</IonCardTitle>
+        <IonCardContent>This is the card content</IonCardContent>
+        <IonCardSubtitle>This is the card subtitle</IonCardSubtitle>
+      </IonCardHeader>
+    </IonCard>
+    </IonCol>
+    <IonCol size="3.5">
+    <IonCard>
+      <IonCardHeader>
+        <IonCardTitle>This is a title</IonCardTitle>
+        <IonCardContent>This is the card content</IonCardContent>
+        <IonCardSubtitle>This is the card subtitle</IonCardSubtitle>
+      </IonCardHeader>
+    </IonCard>
+    </IonCol>
+    <IonCol></IonCol>
+    </IonRow>
+
+
+
 
     </IonGrid>
     
