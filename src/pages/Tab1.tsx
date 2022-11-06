@@ -3,8 +3,6 @@ import ExploreContainer from '../components/ExploreContainer';
 import './Tab1.css';
 import {getFunctions, httpsCallable} from "firebase/functions";
 import { MapContainer, Marker, Popup, TileLayer } from 'react-leaflet';
-
-import * as L from 'leaflet';
 import MyMap from '../components/googlemaps';
 
 
