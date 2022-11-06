@@ -2,7 +2,6 @@ import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonDatetime, IonG
 import ExploreContainer from '../components/ExploreContainer';
 import './Tab3.css';
 import React,{ Component, useMemo} from "react";
-import {GoogleMap, useLoadScript, Marker, LoadScript} from "@react-google-maps/api";
 
 
 const Tab3: React.FC = () => {
@@ -25,9 +24,8 @@ const Tab3: React.FC = () => {
         <IonGrid>
           <IonRow>
             <IonCol></IonCol>
-            <IonCol size='10'>
+            <IonCol class="ion-align-self-center">
                 <IonDatetime></IonDatetime>
-                
                 </IonCol>
             <IonCol></IonCol>
           </IonRow>
