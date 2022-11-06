@@ -1,6 +1,12 @@
 .leaflet-container {
-width:100vw;
-height:80vh;
+    width:100vw;
+    height:80vh;
+    
+    
+    }
 
-
-}
+capacitor-google-map {
+  display: inline-block;
+   width: 275px;
+    height: 400px;
+     }

@@ -1,16 +1,9 @@
 import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonDatetime, IonGrid, IonRow, IonCol, IonItem } from '@ionic/react';
 import ExploreContainer from '../components/ExploreContainer';
 import './Tab3.css';
-import {useMemo} from "react";
+import React,{ Component, useMemo} from "react";
+import {GoogleMap, useLoadScript, Marker, LoadScript} from "@react-google-maps/api";
 
-
-
-{/*export default function Home(){
-  const {} = useLoadScript({
-    googleMapsApiKey: "AIzaSyC4JUh_ULu04GaYDk3J7NPFhmxS1EmcgvY",
-  })
-}
-*/}
 
 const Tab3: React.FC = () => {
   return (
@@ -33,7 +26,6 @@ const Tab3: React.FC = () => {
           <IonRow>
             <IonCol></IonCol>
             <IonCol size='10'>
-              
                 <IonDatetime></IonDatetime>
                 
                 </IonCol>
