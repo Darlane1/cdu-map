@@ -143,7 +143,7 @@ const [units, setUnits] = useState<any>([]);
                 <IonList>
                   fuck 
                   eggs &
-                  ham
+                  ham (Canadian bacon)
                 </IonList>
                   
 
