@@ -9,14 +9,12 @@ import { collection, where, doc, getDoc, getDocs, query, setDoc, onSnapshot } fr
 import { db } from '../firebase';
 import { getDatabase } from "firebase/database";
 
-
 async function buttonClick(){
   const querySnapshot = await getDocs(collection(db,"unit"));
   querySnapshot.forEach((doc) => {
     console.log(doc.id, " => ", doc.data())
 });
 } 
-
 
 //Pages are split into a 12 column grid//
 export default function Tab2() {
@@ -27,7 +25,6 @@ const [units, setUnits] = useState<any>([]);
     () =>
     onSnapshot(collection(db,"unit"), (snapshot) => 
       setUnits(snapshot.docs.map((doc) => ({...doc.data(), id: doc.id})))
-      //setUnits(snapshot.docs.map((doc) => ({...doc.data(), id: doc.id})))
     ),
   []
 );
@@ -46,33 +43,24 @@ const [units, setUnits] = useState<any>([]);
         </IonHeader>
 
         <ExploreContainer name="Search" />
-    
         <IonGrid>
           <IonRow>
             <IonCol offset="1" size="10">
-              <IonSearchbar showClearButton='always' clear-icon={trashBin}></IonSearchbar>
+              <IonSearchbar  showClearButton='always' clear-icon={trashBin}></IonSearchbar>
             </IonCol>
           </IonRow>
 
           <IonRow>
-
             <IonCol offset='1' size='5'>
                     <IonList>
                     <IonItem>
-                      {/*Should work with firebase data and do a foreach loop and https://ionicframework.com/docs/api/select*/}
                       <IonSelect id="unit" interface= "popover" placeholder = "Unit">
-
                         {units.map((unit: {
-                          id: Key | null | undefined; name: string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | ReactFragment | ReactPortal | null | undefined;
-                        }) =>
-                        
-                        (
-                          
-                        <IonSelectOption key={unit.id} value = "1">{unit.name}</IonSelectOption>
-                          
+                          id: Key; 
+                          name: string;
+                        }) => (  
+                        <IonSelectOption key={unit.id} value = "1">{unit.name}</IonSelectOption>  
                         ))}
-
-
                       </IonSelect>
                     </IonItem>
                   </IonList>
@@ -80,32 +68,25 @@ const [units, setUnits] = useState<any>([]);
             <IonCol size = "5">
                     <IonList>
                     <IonItem>
-                      {/*Should work with firebase data and do a foreach loop */}
                       <IonSelect id="lecturer" interface= "popover" placeholder = "Lecturer">
-
-
                       {units.map((unit: {
-                          id: Key | null | undefined; lecturer: string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | ReactFragment | ReactPortal | null | undefined;
-                        }) =>
-                        
-                        (
-                          
+                          id: Key; 
+                          lecturer: string;
+                        }) =>  (
                         <IonSelectOption key={unit.id} value = "1">{unit.lecturer}</IonSelectOption>
-                          
                         ))}
-
-
 
                       </IonSelect>
                     </IonItem>
                   </IonList>
             </IonCol>
           </IonRow>
+          <p id='getResults'></p>
 
           <IonRow>
           <IonCol></IonCol>
             <IonCol size="10" class="ion-text-center">
-              <IonButton onClick={buttonClick}>This is a gosh darn button.</IonButton>
+              <IonButton onClick={buttonClick}>Search</IonButton>
             </IonCol>
             <IonCol></IonCol>
           </IonRow>
@@ -114,67 +95,30 @@ const [units, setUnits] = useState<any>([]);
 <IonRow id="searchResult">
 {/*size = when the screen is below 576px, it will take up 12 columns. size-sm = size of coloumns it will take up when screen is more than 576px.
  * A little broken though cause when the screen is below 576px, the offset is still there so the first row isn't aligned. */}
-  <IonCol id="trash" size="1"></IonCol>
-  <IonCol size="12" size-lg='3.3'>
-    <IonCard>
-      <IonCardHeader>
-        <IonCardTitle>HIT333 Cyber Security</IonCardTitle>
-        <IonCardContent>
-          Room: Example <br/> 
-          Lecturer: Example <br/>
-          Description: Example
-          </IonCardContent>
-        {/*<IonCardSubtitle>Lorem Ipsum</IonCardSubtitle>*/}
-        <IonButton>Take me there!</IonButton>
-      </IonCardHeader>
-    </IonCard>
-    </IonCol>
-    <IonCol size="12" size-lg='3.3'>
-    <IonCard>
-      <IonCardHeader>
-        <IonCardTitle>This is a title</IonCardTitle>
-        <IonCardContent>
-          
-          <IonList>
-            <IonItem>
+<IonCol id="trash" size="1"></IonCol>
 
-              
+{units.map((unit: {
+           id: Key; 
+           name:string;
+           lecturer: string;
+           }) =>  (
+                  <IonCol size="12" size-lg='3.3'>
+                    <IonCard>
+                      <IonCardHeader>
+                       <IonCardTitle>This is {unit.name}</IonCardTitle>
+                        <IonCardContent>
+                         Room:  <br/> 
+                         Lecturer: {unit.lecturer} <br/>
+                         Description: Example
+                       </IonCardContent>
+                    <IonButton>This is a button</IonButton>
+                 </IonCardHeader>
+               </IonCard>
+             </IonCol>
+           ))}
 
-                <IonList>
-                  fuck 
-                  eggs &
-                  ham (Canadian bacon)
-                </IonList>
-                  
-
-
-            </IonItem>
-
-      </IonList>
-        
-
-        </IonCardContent>
-        <IonCardSubtitle>This is the card subtitle</IonCardSubtitle>
-        <IonButton>This is a button</IonButton>
-      </IonCardHeader>
-    </IonCard>
-    </IonCol>
-    <IonCol size="12" size-lg='3.3'>
-    <IonCard>
-      <IonCardHeader>
-        <IonCardTitle>This is a title</IonCardTitle>
-        <IonCardContent>This is the card content</IonCardContent>
-        <IonCardSubtitle>This is the card subtitle</IonCardSubtitle>
-        <IonButton>This is a button</IonButton>
-      </IonCardHeader>
-    </IonCard>
-    </IonCol>
-
-    </IonRow>
+</IonRow>
     </IonGrid>
-    
-
-
       </IonContent>
     </IonPage>
   );

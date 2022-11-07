@@ -3,11 +3,6 @@ import ExploreContainer from '../components/ExploreContainer';
 import './Tab1.css';
 import {getFunctions, httpsCallable} from "firebase/functions";
 import { MapContainer, Marker, Popup, TileLayer } from 'react-leaflet';
-import MyMap from '../components/googlemaps';
-
-
-//testing geolocation from capacitor but so far not working
-//import {Geolocation} from '@capacitor/geolocation';
 
 const Tab1: React.FC = () => {
   return (
@@ -43,12 +38,6 @@ const Tab1: React.FC = () => {
             </map>
           </IonCol>
           </IonRow>
-            <IonItem>
-              {/**Google maps capacitor. might just delete */}
-              <capacitor-google-map id="map"></capacitor-google-map>
-                <MyMap></MyMap>
-              <IonLabel>There is a google map here</IonLabel>
-            </IonItem>
         </IonGrid>
       </IonContent>
     </IonPage>
