@@ -2,7 +2,7 @@ import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonItem, IonGrid 
 import ExploreContainer from '../components/ExploreContainer';
 import './Tab1.css';
 import {getFunctions, httpsCallable} from "firebase/functions";
-import { MapContainer, Marker, Popup, TileLayer } from 'react-leaflet';
+import { MapContainer, Marker, Popup, TileLayer, useMap } from 'react-leaflet';
 
 const Tab1: React.FC = () => {
   return (
@@ -12,6 +12,7 @@ const Tab1: React.FC = () => {
           <IonTitle class="ion-text-center">Map</IonTitle>
         </IonToolbar>
       </IonHeader>
+      
 
       <IonContent fullscreen>
         <IonHeader collapse="condense">
@@ -24,6 +25,7 @@ const Tab1: React.FC = () => {
           <IonRow>
             <IonCol>
               <map id='leaflet-container'>
+                
                <MapContainer center={[-12.3717852, 130.8689199]} zoom={18} scrollWheelZoom={true}>
                   <TileLayer
                     attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
@@ -43,5 +45,6 @@ const Tab1: React.FC = () => {
     </IonPage>
   );
 };
+
 
 export default Tab1;
