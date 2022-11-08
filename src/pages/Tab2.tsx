@@ -17,6 +17,8 @@ async function buttonClick(){
 
 export default function Tab2() {
 const [units, setUnits] = useState<any>([]);
+const [filter, setFilter] = useState(false);
+const onShow = () => setFilter(true);
 
 //console.log(units)
   useEffect(
@@ -46,13 +48,15 @@ const [units, setUnits] = useState<any>([]);
               <IonSearchbar  showClearButton='always' clear-icon={trashBin}></IonSearchbar>
             </IonCol>
             <IonCol size="1">
-              <IonItem href="/">
-               <IonIcon size="large" icon={options}></IonIcon>
+              <IonItem  button onClick={onShow}>
+               <IonIcon size="large"  icon={options}></IonIcon>
               </IonItem>
             </IonCol>
           </IonRow>
 
-          <IonRow>
+
+    {filter ? 
+        <IonRow >
             <IonCol offset='1' size='5'>
                     <IonList>
                     <IonItem>
@@ -67,6 +71,7 @@ const [units, setUnits] = useState<any>([]);
                     </IonItem>
                   </IonList>
             </IonCol>
+            
             <IonCol size = "5">
                     <IonList>
                     <IonItem>
@@ -83,13 +88,14 @@ const [units, setUnits] = useState<any>([]);
                   </IonList>
             </IonCol>
           </IonRow>
-          <p id='getResults'></p>
-
+       :null }
+      {filter ? 
           <IonRow>
             <IonCol offset="1" size="10" class="ion-text-center">
               <IonButton onClick={buttonClick}>Search</IonButton>
             </IonCol>
           </IonRow>
+      : null}
 
 {/*size = when the screen is below 576px, it will take up 12 columns. size-sm = size of coloumns it will take up when screen is more than 576px.
  * A little broken though cause when the screen is below 576px, the offset is still there so the first row isn't aligned. */}
