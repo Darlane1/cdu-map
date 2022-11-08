@@ -1,7 +1,6 @@
 import './Tab2.css';
 import { IonContent, IonHeader, IonPage, IonIcon, IonSearchbar, IonTitle, IonToolbar, IonList, IonItem ,IonSelect, IonSelectOption, IonGrid, IonRow, IonCol, IonButton,  IonCard, IonCardContent, IonCardHeader, IonCardTitle, IonCardSubtitle, IonLabel } from '@ionic/react';
-import { options} from 'ionicons/icons';
-import { trashBin } from 'ionicons/icons';
+import { trashBin, options, refresh } from 'ionicons/icons';
 import ExploreContainer from '../components/ExploreContainer';
 import  { Key, ReactElement, ReactFragment, ReactPortal, useEffect, useState } from 'react';
 import { collection, where, doc, getDoc, getDocs, query, setDoc, onSnapshot } from "firebase/firestore";
@@ -19,6 +18,10 @@ export default function Tab2() {
 const [units, setUnits] = useState<any>([]);
 const [filter, setFilter] = useState(false);
 const onShow = () => setFilter(true);
+
+function doRefresh(){
+  window.location.reload()
+}
 
 //console.log(units)
   useEffect(
@@ -47,13 +50,17 @@ const onShow = () => setFilter(true);
             <IonCol offset="1" size="9">
               <IonSearchbar  showClearButton='always' clear-icon={trashBin}></IonSearchbar>
             </IonCol>
-            <IonCol size="1">
-              <IonItem  button onClick={onShow}>
-               <IonIcon size="large"  icon={options}></IonIcon>
-              </IonItem>
-            </IonCol>
+            <IonCol size="0.5">
+                <IonItem  button onClick={onShow} lines="none">
+                  <IonIcon size="large"  icon={options}></IonIcon>
+                </IonItem>
+               </IonCol>
+               <IonCol size="0.5">
+                <IonItem button onClick={doRefresh} lines="none">
+                 <IonIcon size="large"  icon={refresh}></IonIcon>
+                </IonItem>
+               </IonCol>
           </IonRow>
-
 
     {filter ? 
         <IonRow >
@@ -64,8 +71,9 @@ const onShow = () => setFilter(true);
                         {units.map((unit: {
                           id: Key; 
                           name: string;
+                          unitcode:string;
                         }) => (  
-                        <IonSelectOption key={unit.id} value = "1">{unit.name}</IonSelectOption>  
+                        <IonSelectOption key={unit.id} value = "1">{unit.unitcode} {unit.name}</IonSelectOption>  
                         ))}
                       </IonSelect>
                     </IonItem>
@@ -88,7 +96,7 @@ const onShow = () => setFilter(true);
                   </IonList>
             </IonCol>
           </IonRow>
-       :null }
+       : null }
       {filter ? 
           <IonRow>
             <IonCol offset="1" size="10" class="ion-text-center">
@@ -100,18 +108,22 @@ const onShow = () => setFilter(true);
 {/*size = when the screen is below 576px, it will take up 12 columns. size-sm = size of coloumns it will take up when screen is more than 576px.
  * A little broken though cause when the screen is below 576px, the offset is still there so the first row isn't aligned. */}
 <IonRow id="searchResult">
+  {/** 
   <IonCol id="trash" size="1"></IonCol>
+  */}
   {units.map((unit: {
             id: Key; 
             name:string;
             lecturer: string;
+            bcolor: string;
+            unitcode: string;
             }) =>  (
-                    <IonCol size="12" size-lg='3.3'>
+                    <IonCol size="12" size-lg='4'>
                       <IonCard>
                         <IonCardHeader>
-                        <IonCardTitle>This is {unit.name}</IonCardTitle>
-                          <IonCardContent>
-                          Room:  <br/> 
+                        <IonCardTitle class="ion-text-capitalize">{unit.unitcode} {unit.name}</IonCardTitle>
+                          <IonCardContent class="ion-text-capitalize">
+                          Room: {unit.bcolor} <br/> 
                           Lecturer: {unit.lecturer} <br/>
                           Description: Example
                         </IonCardContent>
