@@ -6,4 +6,6 @@
     border-top-left-radius: 5px ;
     padding-top: 2%;
     padding-bottom: 2%;
+    position: relative;
+    bottom: 0;
 }

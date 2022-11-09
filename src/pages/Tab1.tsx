@@ -21,7 +21,7 @@ const Tab1: React.FC = () => {
         </IonHeader>
 
         <ExploreContainer name="Map" />
-        <IonGrid>
+        <IonGrid class="padding">
           <IonRow>
             <IonCol size="4">
               <IonCard>

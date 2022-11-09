@@ -22,7 +22,7 @@ const Tab3: React.FC = () => {
         </IonHeader>
         <ExploreContainer name="Timetable"/>
 
-        <IonGrid>
+        <IonGrid class="padding">
           <IonRow>
             <IonCol></IonCol>
             <IonCol class="ion-align-self-center">

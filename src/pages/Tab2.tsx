@@ -8,7 +8,7 @@ import { collection, getDocs, onSnapshot } from "firebase/firestore";
 import { db } from '../firebase';
 import {Link} from "react-router-dom";
 
-
+//Here for testing pruposes and send data to console
 async function buttonClick(){
   const querySnapshot = await getDocs(collection(db,"unit"));
   querySnapshot.forEach((doc) => {
@@ -22,9 +22,12 @@ const [units, setUnits] = useState<any>([]);
 const [filter, setFilter] = useState(false);
 const onShow = () => setFilter(true);
 
+
 function doRefresh(){
   window.location.reload()
 }
+
+
 
 //console.log(units)
   useEffect(
@@ -48,23 +51,24 @@ function doRefresh(){
         <IonHeader collapse="condense">
         </IonHeader>
         <ExploreContainer name="Search" />
-        <IonGrid>
+        <IonGrid class="padding">
           <IonRow>
             <IonCol offset="1" size="9">
               <IonSearchbar  showClearButton='always' clear-icon={trashBin}></IonSearchbar>
+              <p></p>
             </IonCol>
             <IonCol size="0.5">
                 <IonItem  button onClick={onShow} lines="none">
-                  <IonIcon size="large"  icon={options}></IonIcon>
+                  <IonIcon size="large" icon={options}></IonIcon>
                 </IonItem>
                </IonCol>
                <IonCol size="0.5">
                 <IonItem button onClick={doRefresh} lines="none">
-                 <IonIcon size="large"  icon={refresh}></IonIcon>
+                 <IonIcon size="large" icon={refresh}></IonIcon>
                 </IonItem>
                </IonCol>
           </IonRow>
-
+ 
     {filter ? 
         <IonRow >
             <IonCol offset='1' size='5'>

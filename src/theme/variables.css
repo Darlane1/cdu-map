@@ -1,8 +1,10 @@
-
-
 .list-md{
   border-radius: 5px;
 
+}
+
+.padding{
+  padding-bottom: 3%;
 }
 
 /* Ionic Variables and Theming. For more info, please see:
