@@ -1,3 +1,4 @@
+//NO LONGER IN USE. HERE JUST FOR TESTING AND LEARNING PURPOSES//
 import { GoogleMap } from '@capacitor/google-maps';
 import { useRef } from 'react';
 
@@ -16,10 +17,10 @@ const MyMap: React.FC = () => {
       apiKey: "AIzaSyC4JUh_ULu04GaYDk3J7NPFhmxS1EmcgvY",
       config: {
         center: {
-          lat: 33.6,
-          lng: -117.9
+          lat: -12.3717852,
+          lng: 130.8689199
         },
-        zoom: 8
+        zoom: 15
       }
     })
   }
@@ -28,7 +29,7 @@ const MyMap: React.FC = () => {
     <div className="component-wrapper">
       <capacitor-google-map ref={mapRef} style={{
         display: 'inline-block',
-        width: 275,
+        width: 400,
         height: 400
       }}></capacitor-google-map>
 

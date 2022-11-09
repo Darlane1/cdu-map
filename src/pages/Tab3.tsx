@@ -2,6 +2,7 @@ import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonDatetime, IonG
 import ExploreContainer from '../components/ExploreContainer';
 import './Tab3.css';
 import React,{ Component, useMemo} from "react";
+import AppFooter from '../components/AppFooter';
 
 
 const Tab3: React.FC = () => {
@@ -31,6 +32,7 @@ const Tab3: React.FC = () => {
           </IonRow>
         </IonGrid>
         
+        <AppFooter/>
       </IonContent>
     
 

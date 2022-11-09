@@ -2,9 +2,12 @@ import './Tab2.css';
 import { IonContent, IonHeader, IonPage, IonIcon, IonSearchbar, IonTitle, IonToolbar, IonList, IonItem ,IonSelect, IonSelectOption, IonGrid, IonRow, IonCol, IonButton,  IonCard, IonCardContent, IonCardHeader, IonCardTitle, IonCardSubtitle, IonLabel } from '@ionic/react';
 import { trashBin, options, refresh } from 'ionicons/icons';
 import ExploreContainer from '../components/ExploreContainer';
+import AppFooter from '../components/AppFooter';
 import  { Key, ReactElement, ReactFragment, ReactPortal, useEffect, useState } from 'react';
-import { collection, where, doc, getDoc, getDocs, query, setDoc, onSnapshot } from "firebase/firestore";
+import { collection, getDocs, onSnapshot } from "firebase/firestore";
 import { db } from '../firebase';
+import {Link} from "react-router-dom";
+
 
 async function buttonClick(){
   const querySnapshot = await getDocs(collection(db,"unit"));
@@ -127,13 +130,21 @@ function doRefresh(){
                           Lecturer: {unit.lecturer} <br/>
                           Description: Example
                         </IonCardContent>
-                      <IonButton href="">locate</IonButton>
+                        <Link to={{
+                          pathname: "/tab1",}}>
+                            <IonButton href="">locate</IonButton>
+                        </Link>
+                      
                   </IonCardHeader>
                 </IonCard>
               </IonCol>
             ))}
-</IonRow>
-    </IonGrid>
+          </IonRow>
+          
+       </IonGrid>
+
+       <AppFooter/>
+       
       </IonContent>
     </IonPage>
   );

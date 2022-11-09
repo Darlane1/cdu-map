@@ -1,9 +1,10 @@
-import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonItem, IonGrid , IonRow, IonCol, IonLabel, } from '@ionic/react';
+import { IonContent, IonCard,IonHeader, IonPage, IonTitle, IonToolbar, IonItem, IonGrid , IonRow, IonCol, IonLabel, IonCardContent } from '@ionic/react';
 import ExploreContainer from '../components/ExploreContainer';
 import './Tab1.css';
 import {getFunctions, httpsCallable} from "firebase/functions";
 import { MapContainer, Marker, Popup, TileLayer, useMap } from 'react-leaflet';
-
+import 'leaflet';
+import AppFooter from '../components/AppFooter';
 const Tab1: React.FC = () => {
   return (
     <IonPage>
@@ -12,7 +13,6 @@ const Tab1: React.FC = () => {
           <IonTitle class="ion-text-center">Map</IonTitle>
         </IonToolbar>
       </IonHeader>
-      
 
       <IonContent fullscreen>
         <IonHeader collapse="condense">
@@ -23,7 +23,15 @@ const Tab1: React.FC = () => {
         <ExploreContainer name="Map" />
         <IonGrid>
           <IonRow>
-            <IonCol>
+            <IonCol size="4">
+              <IonCard>
+                <IonHeader>
+                  <IonTitle>This is a Title</IonTitle>
+                    <IonCardContent>This is a bunch of something</IonCardContent>
+                </IonHeader>
+                </IonCard>
+                </IonCol>
+            <IonCol >
               <map id='leaflet-container'>
                 
                <MapContainer center={[-12.3717852, 130.8689199]} zoom={18} scrollWheelZoom={true}>
@@ -41,10 +49,10 @@ const Tab1: React.FC = () => {
           </IonCol>
           </IonRow>
         </IonGrid>
+        <AppFooter/>
       </IonContent>
     </IonPage>
   );
 };
-
 
 export default Tab1;
