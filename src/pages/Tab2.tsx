@@ -9,7 +9,7 @@ import { collection, GeoPoint, getDocs, onSnapshot, where } from "firebase/fires
 import { db } from '../firebase';
 
 
-//Here for testing pruposes and send data to console
+//This button queries the Collection as a whole and sends all the data to the F12 browser dev console.
 async function checkCollection(){
   const querySnapshot = await getDocs(collection(db,"unit"));
   querySnapshot.forEach((doc) => {
@@ -27,8 +27,7 @@ function doRefresh(){
   window.location.reload()
 }
 
-//Main DB retrieval React Hook.
-//console.log(units)
+//Main DB retrieval React Hook, auto retrieves everything at the moment.
   useEffect(
     () =>
     onSnapshot(collection(db,"unit"), (snapshot) => 
@@ -36,8 +35,6 @@ function doRefresh(){
     ),
   []
 );
-
-
 
 /*
 
@@ -148,7 +145,6 @@ function SnapshotFirebase() {
               This is for James testing results from above search bar.
               
 
-
               </IonList>
 
             </IonCard>
@@ -181,7 +177,7 @@ function SnapshotFirebase() {
                         }) => (  
                         <IonSelectOption key={unit.id} value = "1">{unit.unitcode} {unit.name}</IonSelectOption>  
                         ))}
-                      </IonSelect>
+                      </IonSelect> 
                     </IonItem>
                   </IonList>
             </IonCol>

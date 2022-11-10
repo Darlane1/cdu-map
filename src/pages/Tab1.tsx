@@ -3,56 +3,108 @@ import ExploreContainer from '../components/ExploreContainer';
 import './Tab1.css';
 import './Tab2'
 import {getFunctions, httpsCallable} from "firebase/functions";
-import { MapContainer, Marker, Popup, TileLayer, useMap } from 'react-leaflet';
+import {  MapContainer, Marker, Popup, TileLayer, useMap, useMapEvent, useMapEvents } from 'react-leaflet';
 import 'leaflet';
 import AppFooter from '../components/AppFooter';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, Key } from 'react';
 import { bicycle, car, chevronDown } from 'ionicons/icons';
+import useSwr from "swr";
+import { options } from 'ionicons/icons';
+import L, { icon, marker } from 'leaflet';
+import { onSnapshot, collection, GeoPoint } from 'firebase/firestore';
+import { db } from '../firebase';
+import { Link } from 'react-router-dom';
 
 
 export default function Tab1() {
-  /*
-const geocode = () => {
-  const [location, setLocation] = useState({
-    loaded: false,
-    coordinates:
-    { latitude: "",
-    longitude: "" }
-  });
-
-  useEffect(() => {
-    if( !("geolocation") in navigator) ){
-      setLocation(state => {
-        ...state
-        loaded: true
-        error: {
-          code: 0,
-          message: "Geolocation got rekt"
-        }
-      }))
-    }
-  }, [])
   
-  return location;}))
 
+
+
+    const [ units, setUnits ] = useState<any>([]);
+    
+    //Main DB retrieval React Hook, auto retrieves everything at the moment.
+      useEffect(
+        () =>
+        onSnapshot(collection(db,"unit"), (snapshot) => 
+          setUnits(snapshot.docs.map((doc) => ({...doc.data(), id: doc.id})))
+        ),
+      []
+    );
+  
+  
+  
+
+const position = [
+  [-51.505, -0.09]
+]
+
+var myIcon = L.icon({
+  iconUrl: 'https://ih1.redbubble.net/image.578654116.9300/raf,128x128,075,t,8DB3D2:e6f0370482.u8.jpg',
+  iconSize: [38, 38],
+  iconAnchor: [22, 94],
+  popupAnchor: [-3, -76],
+  shadowSize: [68, 95],
+  shadowAnchor: [22, 94]
+});
+
+
+
+
+function MapInteractivity() {
+  const map = useMapEvent('click', () => {
+    map.setZoom(19);
+    map.setView([-12.3717852, 130.8689199]);
+    L.marker([-12.3737852, 130.8689199], {icon: myIcon}).addTo(map);
+    L.marker([-12.3747852, 130.8689199], {icon: myIcon}).bindTooltip("blap ya").openTooltip().addTo(map);
+    L.marker([-12.3747852, 130.8789199], {icon: myIcon}).addTo(map);
+    
+   
+
+
+
+    
+  })
+
+  return null
 }
-*/
+
+function MyMapComponent() {
+  return (
+    <MapContainer center={[50.5, 30.5]} zoom={13}>
+      <MapInteractivity />
+    </MapContainer>
+  )
+}
+
+//part of what's needed to bring in co
+{units.map((unit: {
+  id: Key; 
+  name:string;
+  lecturer: string;
+  bcolor: string;
+  unitcode: string;
+  geoloca: GeoPoint;
+  descr: string;
+  test1: string;
+  }) =>  ([])
+  
+  )}
 
 
   return (
+
     <IonPage>
       <IonHeader>
         <IonToolbar>
           <IonTitle class="ion-text-center">Map</IonTitle>
         </IonToolbar>
       </IonHeader>
-
       <IonContent fullscreen>
         <IonHeader collapse="condense">
           <IonToolbar>
           </IonToolbar>
         </IonHeader>
-
         <ExploreContainer name="Map" />
         <IonGrid class="padding">
           <IonRow>
@@ -95,6 +147,55 @@ const geocode = () => {
             </map>
           </IonCol>
           </IonRow>
+
+          <IonRow id="cuint">
+
+  {units.map((unit: {
+            id: Key; 
+            name:string;
+            lecturer: string;
+            bcolor: string;
+            unitcode: string;
+            geoloca: GeoPoint;
+            descr: string;
+            test1: string;
+            }) =>  (
+                    <IonCol>
+                      
+                      <IonCard>
+                        <IonCardHeader>
+                        <IonCardTitle class="ion-text-fuckyou">{unit.test1} {unit.name}</IonCardTitle>
+                          <IonCardContent class="ion-text-fuckyou">
+                          {unit.test1} <br/> 
+
+                        </IonCardContent>
+
+                      
+                  </IonCardHeader>
+                </IonCard>
+              </IonCol>
+            ))}
+          </IonRow>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         </IonGrid>
         <AppFooter/>
       </IonContent>
