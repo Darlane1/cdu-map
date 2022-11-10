@@ -32,6 +32,7 @@
     "firebase": "^9.12.1",
     "ionicons": "^6.0.3",
     "leaflet": "^1.9.2",
+    "mapbox-gl": "^2.10.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-leaflet": "^4.1.0",

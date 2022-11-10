@@ -8,19 +8,19 @@ const AppFooter: React.FC = () => {
       <IonRow>
         <IonCol offset='2'>
         <IonLabel>
-            HIT401 PROJECT MANAGEMENT
+            
         </IonLabel>
         </IonCol>
       </IonRow>
       <IonRow>
         <IonCol offset="2">
           <IonLabel>
-          @2022 Application done by Darlane Tang, James Munson, Neil, Rakib.
+          © 2022 Charles Darwin University
           </IonLabel>
         </IonCol>
         <IonCol offset='2' class="ion-text-wrap">
           <IonLabel>
-            Charles Darwin University
+          HIT401 Capstone Project - Team 2
           </IonLabel>
         </IonCol>
       </IonRow>

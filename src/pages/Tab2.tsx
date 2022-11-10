@@ -1,10 +1,11 @@
+import './Tab1.tsx';
 import './Tab2.css';
 import { IonContent, IonHeader, IonPage, IonIcon, IonSearchbar, IonTitle, IonToolbar, IonList, IonItem ,IonSelect, IonSelectOption, IonGrid, IonRow, IonCol, IonButton,  IonCard, IonCardContent, IonCardHeader, IonCardTitle, IonCardSubtitle, IonLabel } from '@ionic/react';
 import { trashBin, options, refresh } from 'ionicons/icons';
 import ExploreContainer from '../components/ExploreContainer';
 import AppFooter from '../components/AppFooter';
 import  { Key, ReactElement, ReactFragment, ReactPortal, useEffect, useState } from 'react';
-import { collection, getDocs, onSnapshot } from "firebase/firestore";
+import { collection, GeoPoint, getDocs, onSnapshot } from "firebase/firestore";
 import { db } from '../firebase';
 import {Link} from "react-router-dom";
 
@@ -18,15 +19,14 @@ async function buttonClick(){
 
 
 export default function Tab2() {
+
 const [units, setUnits] = useState<any>([]);
 const [filter, setFilter] = useState(false);
 const onShow = () => setFilter(true);
 
-
 function doRefresh(){
   window.location.reload()
 }
-
 
 
 //console.log(units)
@@ -38,6 +38,22 @@ function doRefresh(){
   []
 );
 
+/*
+
+const Search = () => {
+  const [query, setQuery ] = useState("")
+  const handleKey = (e: { code: string; })=>{
+    e.code === "Enter" && handleSearch();
+  }}
+*/
+
+
+//1. This doesn't work but it's crash-free at the moment and is the start of a Search function.
+const [query, setQuery] = useState("");
+console.log(query);
+
+const handleSearch = (e: any) => {};
+
 //Pages are split into a 12 column grid//
   return (
     <IonPage>
@@ -47,15 +63,30 @@ function doRefresh(){
         </IonToolbar>
       </IonHeader>
       <IonContent fullscreen>
-      {/**Really not sure what the below does? */}
         <IonHeader collapse="condense">
         </IonHeader>
         <ExploreContainer name="Search" />
         <IonGrid class="padding">
           <IonRow>
             <IonCol offset="1" size="9">
-              <IonSearchbar  showClearButton='always' clear-icon={trashBin}></IonSearchbar>
-              <p></p>
+              <IonSearchbar  showClearButton='always'
+              
+              placeholder="Search for a unit, lecturer, or..." //2. onKeyUp={handleSearch}
+
+
+
+              clear-icon={trashBin}></IonSearchbar>
+          <IonRow>
+            <IonCard>
+
+              <IonList>
+              This is for James testing results from above search bar.
+              </IonList>
+
+            </IonCard>
+          </IonRow>
+
+
             </IonCol>
             <IonCol size="0.5">
                 <IonItem  button onClick={onShow} lines="none">
@@ -107,13 +138,15 @@ function doRefresh(){
       {filter ? 
           <IonRow>
             <IonCol offset="1" size="10" class="ion-text-center">
-              <IonButton onClick={buttonClick}>Search</IonButton>
+              <IonButton onClick={buttonClick}>This button is a button.</IonButton>
             </IonCol>
           </IonRow>
       : null}
 
 {/*size = when the screen is below 576px, it will take up 12 columns. size-sm = size of coloumns it will take up when screen is more than 576px.
  * A little broken though cause when the screen is below 576px, the offset is still there so the first row isn't aligned. */}
+
+
 <IonRow id="searchResult">
   {/** 
   <IonCol id="trash" size="1"></IonCol>
@@ -124,19 +157,22 @@ function doRefresh(){
             lecturer: string;
             bcolor: string;
             unitcode: string;
+            geoloca: GeoPoint;
+            descr: string;
             }) =>  (
                     <IonCol size="12" size-lg='4'>
+                      
                       <IonCard>
                         <IonCardHeader>
                         <IonCardTitle class="ion-text-capitalize">{unit.unitcode} {unit.name}</IonCardTitle>
                           <IonCardContent class="ion-text-capitalize">
                           Room: {unit.bcolor} <br/> 
                           Lecturer: {unit.lecturer} <br/>
-                          Description: Example
+                          Description: {unit.descr}
                         </IonCardContent>
                         <Link to={{
                           pathname: "/tab1",}}>
-                            <IonButton href="">locate</IonButton>
+                            <IonButton href="">locate </IonButton>
                         </Link>
                       
                   </IonCardHeader>
