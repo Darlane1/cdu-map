@@ -18,7 +18,12 @@ const AppFooter: React.FC = () => {
         </IonCol>
       </IonRow>
       <IonRow>
-      <IonCol offset-lg='8'>
+        <IonCol offset-lg="2">
+          <IonLabel>
+            <p>This is a little bit more information</p>
+          </IonLabel>
+        </IonCol>
+      <IonCol offset-lg='2'>
         <IonLabel>
             <p>Darlane Tang, James Munson, Neil, Rakib</p>
         </IonLabel>

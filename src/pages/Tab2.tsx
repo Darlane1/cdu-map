@@ -7,6 +7,7 @@ import AppFooter from '../components/AppFooter';
 import  { Key, useEffect, useState } from 'react';
 import { collection, GeoPoint, getDocs, onSnapshot, where } from "firebase/firestore";
 import { db } from '../firebase';
+import Filtertoggle from '../components/ToggleFilter';
 
 
 //This button queries the Collection as a whole and sends all the data to the F12 browser dev console.
@@ -22,6 +23,7 @@ export default function Tab2() {
 const [units, setUnits] = useState<any>([]);
 const [filter, setFilter] = useState(false);
 const onShow = () => setFilter(true);
+
 
 function doRefresh(){
   window.location.reload()
@@ -81,7 +83,6 @@ useEffect(() => {
 const [query, setQuery] = useState<any>("");
 console.log(query);
 
-const handleSearch = (e: any) => {};
 
 function SnapshotFirebase() {
 
@@ -163,6 +164,8 @@ function SnapshotFirebase() {
                 </IonItem>
                </IonCol>
           </IonRow>
+
+          <Filtertoggle/>
  
     {filter ? 
         <IonRow >
@@ -198,11 +201,12 @@ function SnapshotFirebase() {
                   </IonList>
             </IonCol>
           </IonRow>
-       : null }
+       : null  }
       {filter ? 
           <IonRow>
             <IonCol offset="1" size="10" class="ion-text-center">
-              <IonButton onClick={checkCollection}>This button is a button.</IonButton>
+              <IonButton shape="round" onClick={checkCollection}>Search</IonButton>
+              {/*<IonButton shape="round" onClick={buttonClick}>Search</IonButton>*/}
             </IonCol>
           </IonRow>
       : null}
@@ -225,7 +229,7 @@ function SnapshotFirebase() {
             descr: string;
             }) =>  (
                     <IonCol size="12" size-lg='4' >                     
-                      <IonCard>
+                      <IonCard class="ioncardcss">
                         <IonCardHeader>
                         <IonCardTitle class="ion-text-capitalize">{unit.unitcode} {unit.name}</IonCardTitle>
                         </IonCardHeader>
@@ -233,9 +237,11 @@ function SnapshotFirebase() {
                             Room: {unit.bcolor} <br/> 
                             Lecturer: {unit.lecturer} <br/>
                             {unit.descr} 
-                        </IonCardContent>              
+                        </IonCardContent>
+                        <div className="cardButtons">            
                             <IonButton fill="clear" shape="round" routerLink='/tab1'>locate</IonButton>
-                            <IonButton shape="round" routerLink='/tab3'>timetable</IonButton>             
+                            <IonButton  shape="round" routerLink='/tab3'>timetable</IonButton>    
+                        </div>           
                 </IonCard>
               </IonCol>
             ))}

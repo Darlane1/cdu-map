@@ -12,7 +12,13 @@
   }
 
   .fixedh{
-    height: 200px;
-    max-height: 140px;
-
+    height: 140px;
+    overflow: hidden;
   }
+
+.ioncardcss{
+  max-height: 400px;
+}
+.cardButtons{
+  padding-bottom: 2%;
+}
