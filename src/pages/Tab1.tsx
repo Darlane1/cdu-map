@@ -72,9 +72,9 @@ const geocode = () => {
                     url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                     
                   />
-              <Marker position={[-12.3715952, 130.8689199]}>
+              <Marker position={[-12.371294, 130.866874]}>
                 <Popup>
-                  CDU  <br /> this is a marker
+                Hit 372 Organisation Network Infrastructure  <br />  3rd floor room .17
                 </Popup>
               </Marker>
             </MapContainer>
@@ -86,4 +86,6 @@ const geocode = () => {
       </IonContent>
     </IonPage>
   );
+
+  
 };
