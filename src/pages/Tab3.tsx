@@ -7,7 +7,7 @@ import AppFooter from '../components/AppFooter';
 
 const Tab3: React.FC = () => {
   return (
-    <IonPage>
+    <IonPage >
       <IonHeader>
         <IonToolbar>
           <IonTitle class="ion-text-center">Timetable</IonTitle>
@@ -22,7 +22,7 @@ const Tab3: React.FC = () => {
         </IonHeader>
         <ExploreContainer name="Timetable"/>
 
-        <IonGrid class="padding">
+        <IonGrid class="padding fullpage">
           <IonRow>
             <IonCol></IonCol>
             <IonCol class="ion-align-self-center">
