@@ -72,7 +72,7 @@ const geocode = () => {
                     url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                     
                   />
-              <Marker position={[-12.371294, 130.866874]}>
+              <Marker position={[-12.371666, 130.868028]}>
                 <Popup>
                 Hit 372 Organisation Network Infrastructure  <br />  3rd floor room .17
                 </Popup>
