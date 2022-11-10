@@ -4,11 +4,10 @@ import { IonContent, IonHeader, IonPage, IonIcon, IonSearchbar, IonTitle, IonToo
 import { trashBin, options, refresh } from 'ionicons/icons';
 import ExploreContainer from '../components/ExploreContainer';
 import AppFooter from '../components/AppFooter';
-import  { Key, ReactElement, ReactFragment, ReactPortal, useEffect, useState } from 'react';
+import  { Key, useEffect, useState } from 'react';
 import { collection, GeoPoint, getDocs, onSnapshot, where } from "firebase/firestore";
 import { db } from '../firebase';
-import { Link, useLocation } from "react-router-dom";
-import Tab3 from './Tab3';
+
 
 //Here for testing pruposes and send data to console
 async function checkCollection(){
@@ -20,9 +19,8 @@ async function checkCollection(){
 
 
 export default function Tab2() {
-
-const [ units, setUnits ] = useState<any>([]);
-const [ filter, setFilter ] = useState(false);
+const [units, setUnits] = useState<any>([]);
+const [filter, setFilter] = useState(false);
 const onShow = () => setFilter(true);
 
 function doRefresh(){
@@ -230,22 +228,18 @@ function SnapshotFirebase() {
             geoloca: GeoPoint;
             descr: string;
             }) =>  (
-                    <IonCol size="12" size-lg='4'>
-                      
+                    <IonCol size="12" size-lg='4' >                     
                       <IonCard>
                         <IonCardHeader>
                         <IonCardTitle class="ion-text-capitalize">{unit.unitcode} {unit.name}</IonCardTitle>
-                          <IonCardContent class="ion-text-capitalize">
-                          Room: {unit.bcolor} <br/> 
-                          Lecturer: {unit.lecturer} <br/>
-                          Description: {unit.descr}
-                        </IonCardContent>
-                        <Link to={{
-                          pathname: "/tab1",}}>
-                            <IonButton href="">locate</IonButton>
-                        </Link>
-                      
-                  </IonCardHeader>
+                        </IonCardHeader>
+                          <IonCardContent class="ion-text-capitalize fixedh">  
+                            Room: {unit.bcolor} <br/> 
+                            Lecturer: {unit.lecturer} <br/>
+                            {unit.descr} 
+                        </IonCardContent>              
+                            <IonButton fill="clear" shape="round" routerLink='/tab1'>locate</IonButton>
+                            <IonButton shape="round" routerLink='/tab3'>timetable</IonButton>             
                 </IonCard>
               </IonCol>
             ))}
