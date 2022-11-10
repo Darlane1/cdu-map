@@ -5,12 +5,13 @@ import { trashBin, options, refresh } from 'ionicons/icons';
 import ExploreContainer from '../components/ExploreContainer';
 import AppFooter from '../components/AppFooter';
 import  { Key, ReactElement, ReactFragment, ReactPortal, useEffect, useState } from 'react';
-import { collection, GeoPoint, getDocs, onSnapshot } from "firebase/firestore";
+import { collection, GeoPoint, getDocs, onSnapshot, where } from "firebase/firestore";
 import { db } from '../firebase';
-import {Link} from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
+import Tab3 from './Tab3';
 
 //Here for testing pruposes and send data to console
-async function buttonClick(){
+async function checkCollection(){
   const querySnapshot = await getDocs(collection(db,"unit"));
   querySnapshot.forEach((doc) => {
     console.log(doc.id, " => ", doc.data())
@@ -20,15 +21,15 @@ async function buttonClick(){
 
 export default function Tab2() {
 
-const [units, setUnits] = useState<any>([]);
-const [filter, setFilter] = useState(false);
+const [ units, setUnits ] = useState<any>([]);
+const [ filter, setFilter ] = useState(false);
 const onShow = () => setFilter(true);
 
 function doRefresh(){
   window.location.reload()
 }
 
-
+//Main DB retrieval React Hook.
 //console.log(units)
   useEffect(
     () =>
@@ -38,21 +39,86 @@ function doRefresh(){
   []
 );
 
+
+
 /*
 
 const Search = () => {
-  const [query, setQuery ] = useState("")
+  const [query, setQuery ] = useState({})
   const handleKey = (e: { code: string; })=>{
     e.code === "Enter" && handleSearch();
   }}
+
+
+const Search = () => {
+  const [data, setData] = useState({});
+
+  const useQuery = () => {
+    return new URLSearchParams(useLocation(.search);
+  
+  };
+let query = useQuery();
+let search = query.get("name");
+console.log("search", search);
+
+useEffect(() => {
+  searchData = () => {
+    db
+    .child("unit")
+    .orderByChild("unitcode")
+    .equalTo(search)
+    .on("value",(snapshot) => {
+      if (snapshot.val()) {
+        const data = snapshot.val();
+        setData(data);
+      }
+    });
+  }
+}
+
+  )}
+
+}
 */
 
-
 //1. This doesn't work but it's crash-free at the moment and is the start of a Search function.
-const [query, setQuery] = useState("");
+//REALTIME GET FUNCTGION
+const [query, setQuery] = useState<any>("");
 console.log(query);
 
 const handleSearch = (e: any) => {};
+
+function SnapshotFirebase() {
+
+  const collectionRef = collection(db, 'unit');
+  const [ units, setUnits ] = useState<any>([]);
+  const [ loading, setLoading ] = useState(false);
+  const [ name, setName ] = useState<any>('');
+  const [ lecturer, setLecturer ] = useState<any>('');
+
+  useEffect(() => {
+    const q = query(
+      collectionRef,
+      where('name', '==', 'HIT333')
+    );
+
+  setLoading(true);
+  const unsub = onSnapshot(collectionRef, (querySnapshot) => {
+    const items = [];
+    querySnapshot.forEach((doc) => {
+      items.push(doc.data());
+      
+    });
+    setUnits(units);
+    setLoading(false);
+  });
+  return () => {
+    unsub();
+  };
+
+}, []);
+}
+
 
 //Pages are split into a 12 column grid//
   return (
@@ -80,7 +146,11 @@ const handleSearch = (e: any) => {};
             <IonCard>
 
               <IonList>
+
               This is for James testing results from above search bar.
+              
+
+
               </IonList>
 
             </IonCard>
@@ -138,7 +208,7 @@ const handleSearch = (e: any) => {};
       {filter ? 
           <IonRow>
             <IonCol offset="1" size="10" class="ion-text-center">
-              <IonButton onClick={buttonClick}>This button is a button.</IonButton>
+              <IonButton onClick={checkCollection}>This button is a button.</IonButton>
             </IonCol>
           </IonRow>
       : null}
@@ -172,7 +242,7 @@ const handleSearch = (e: any) => {};
                         </IonCardContent>
                         <Link to={{
                           pathname: "/tab1",}}>
-                            <IonButton href="">locate </IonButton>
+                            <IonButton href="">locate</IonButton>
                         </Link>
                       
                   </IonCardHeader>
