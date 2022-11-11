@@ -16,11 +16,9 @@ import { db } from '../firebase';
 import { Link } from 'react-router-dom';
 
 
+
 export default function Tab1() {
   
-
-
-
     const [ units, setUnits ] = useState<any>([]);
     
     //Main DB retrieval React Hook, auto retrieves everything at the moment.
@@ -86,6 +84,8 @@ function MyMapComponent() {
   
   )}
 
+const expandView = () => setViewmore(true);
+const [Viewmore, setViewmore] = useState(false);
 
   return (
 
@@ -97,7 +97,7 @@ function MyMapComponent() {
       </IonHeader>
       <IonContent fullscreen>
         <IonHeader collapse="condense">
-          <IonToolbar>
+          <IonToolbar>+
           </IonToolbar>
         </IonHeader>
         <ExploreContainer name="Map" />
@@ -116,10 +116,22 @@ function MyMapComponent() {
                     </IonCardContent>  
                     <IonButton fill="clear" shape='round'><IonIcon slot="start" icon={car}></IonIcon>16 mins</IonButton>
                     <IonButton shape='round'><IonIcon slot="start" icon={bicycle}></IonIcon>48 mins</IonButton>
-                    <IonItem button lines="none">
+
+                    {Viewmore ?
+                    <IonCardContent>
+                      <IonLabel>Suspendisse fermentum interdum ultrices. Aenean commodo, sem vel tempus imperdiet, nunc dolor finibus elit, at 
+                        iaculis lectus elit quis magna. Suspendisse lacus mauris, lobortis sed augue fermentum, dignissim pretium lacus. 
+                        Phasellus eu dolor fringilla, ornare est suscipit, tempor ligula. Integer fermentum, mi a bibendum pharetra, turpis 
+                        felis sodales sem, sed pulvinar augue nunc et sem. Sed quis porta metus, in condimentum ex.</IonLabel>
+                    </IonCardContent>                   
+                  :null}
+
+                    <IonItem button lines="none" onClick={expandView}>
                       <IonLabel>View More</IonLabel>
                       <IonIcon slot="start" size="medium" icon={chevronDown}></IonIcon>
                     </IonItem>
+
+
               </IonCard>
             </IonCol>
             <IonCol>
@@ -168,25 +180,6 @@ function MyMapComponent() {
               </IonCol>
             ))}
           </IonRow>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
         </IonGrid>
         <AppFooter/>
