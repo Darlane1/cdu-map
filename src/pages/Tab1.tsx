@@ -51,10 +51,10 @@ function MapInteractivity() {
   const map = useMapEvent('click', () => {
     map.setZoom(19);
     map.setView([-12.3717852, 130.8689199]);
-    L.marker([-12.3737852, 130.8689199], {icon: myIcon}).addTo(map);
-    L.marker([-12.3747852, 130.8689199], {icon: myIcon}).bindTooltip("blap ya").openTooltip().addTo(map);
-    L.marker([-12.3747852, 130.8789199], {icon: myIcon}).addTo(map);
-    
+    L.marker([-12.3717852, 130.8689199], {icon: myIcon}).bindTooltip("got ya").openTooltip().addTo(map);
+    L.marker([-12.3747852, 130.8889199], {icon: myIcon}).addTo(map);
+    L.marker([-12.3737852, 130.8589199], {icon: myIcon}).addTo(map);
+
   })
 
   return null
@@ -63,12 +63,12 @@ function MapInteractivity() {
 function MyMapComponent() {
   return (
     <MapContainer center={[50.5, 30.5]} zoom={13}>
-      <MapInteractivity />
+      <MapInteractivity/>
     </MapContainer>
   )
 }
 
-//part of what's needed to bring in co
+//part of what's needed to bring in db.
 {units.map((unit: {
   id: Key; 
   name:string;
@@ -120,11 +120,7 @@ function toggleviewOff(){
                     <IonCardContent>
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare massa sed sem dictum finibus. 
                         Nam bibendum egestas sem, nec sagittis odio placerat ut. Nullam consectetur id ex eget facilisis. Lorem ipsum dolor 
-                        sit amet, consectetur adipiscing elit. Vivamus ornare massa sed sem dictum finibus. Nam bibendum egestas sem, nec sagittis 
-                        odio placerat ut. Nullam consectetur id ex eget facilisis. Aenean non arcu nec metus vulputate egestas et ac dolor. Praesent 
-                        ac ante accumsan, porttitor nisl et, tempor metus. Mauris eget augue lacus. Pellentesque accumsan sed lacus vel malesuada. 
-                        Aenean aliquam tortor lectus, a auctor augue interdum non. Vivamus nec urna eu lorem luctus bibendum id in odio. Vivamus non 
-                        placerat ex. Nulla non fermentum quam.
+                        sit amet, consectetur adipiscing elit. Vivamus ornare massa sed sem dictum finibus.
                     </IonCardContent>  
                     <IonButton fill="clear" shape='round'><IonIcon slot="start" icon={car}></IonIcon>16 mins</IonButton>
                     <IonButton shape='round'><IonIcon slot="start" icon={bicycle}></IonIcon>48 mins</IonButton>
@@ -154,12 +150,13 @@ function toggleviewOff(){
             </IonCol>
             <IonCol>
               <map id='leaflet-container'>               
-               <MapContainer center={[-12.3717852, 130.8689199]} zoom={18} scrollWheelZoom={true}>
+               <MapContainer center={[41.89016626073382, 12.492327291197707]} zoom={19} scrollWheelZoom={true}>
                   <TileLayer
                     attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-                    url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"                   
+                    url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"                  
                   />
-              <Marker position={[-12.371666, 130.868028]}>
+              <Marker position={[41.89016626073382, 12.492327291197707]}>
+                       <MapInteractivity/>
                 <Popup>
                 Hit 372 Organisation Network Infrastructure  <br />  3rd floor room .17
                 </Popup>
@@ -169,7 +166,7 @@ function toggleviewOff(){
           </IonCol>
           </IonRow>
 
-          <IonRow id="cuint">
+          <IonRow id="cuit">
 
   {units.map((unit: {
             id: Key; 
@@ -185,8 +182,8 @@ function toggleviewOff(){
                       
                       <IonCard>
                         <IonCardHeader>
-                        <IonCardTitle class="ion-text-fuckyou">{unit.test1} {unit.name}</IonCardTitle>
-                          <IonCardContent class="ion-text-fuckyou">
+                        <IonCardTitle class="ion-text-suck">{unit.test1} {unit.name}</IonCardTitle>
+                          <IonCardContent class="ion-text-suck">
                           {unit.test1} <br/> 
 
                         </IonCardContent>
