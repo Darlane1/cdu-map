@@ -147,7 +147,7 @@ function SnapshotFirebase() {
 
 
               clear-icon={trashBin}></IonSearchbar>
-          <IonRow>
+        {/*} <IonRow>
             <IonCard>
 
               <IonList>
@@ -159,6 +159,7 @@ function SnapshotFirebase() {
 
             </IonCard>
           </IonRow>
+  */}
 
 
             </IonCol>
