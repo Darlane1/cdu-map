@@ -2,14 +2,12 @@ import { IonContent, IonCard,IonHeader, IonPage, IonTitle, IonToolbar, IonItem,I
 import ExploreContainer from '../components/ExploreContainer';
 import './Tab1.css';
 import './Tab2'
-import {getFunctions, httpsCallable} from "firebase/functions";
 import {  MapContainer, Marker, Popup, TileLayer, useMap, useMapEvent, useMapEvents } from 'react-leaflet';
 import 'leaflet';
 import AppFooter from '../components/AppFooter';
 import { useState, useEffect, Key } from 'react';
-import { bicycle, car, chevronDown } from 'ionicons/icons';
+import { bicycle, car, chevronDown, chevronUp, options } from 'ionicons/icons';
 import useSwr from "swr";
-import { options } from 'ionicons/icons';
 import L, { icon, marker } from 'leaflet';
 import { onSnapshot, collection, GeoPoint } from 'firebase/firestore';
 import { db } from '../firebase';
@@ -84,11 +82,21 @@ function MyMapComponent() {
   
   )}
 
-const expandView = () => setViewmore(true);
+//const expandView = () => setViewmore(true);
 const [Viewmore, setViewmore] = useState(false);
+const [Toggleview, setToggleview] = useState(true)
+
+function toggleviewOn(){
+  setViewmore(true);
+  setToggleview(false);
+};
+
+function toggleviewOff(){
+  setViewmore(false);
+  setToggleview(true);
+}
 
   return (
-
     <IonPage>
       <IonHeader>
         <IonToolbar>
@@ -130,11 +138,17 @@ const [Viewmore, setViewmore] = useState(false);
                     </IonCardContent>                   
                   :null}
 
-                    <IonItem button lines="none" onClick={expandView}>
+                  {Toggleview ? 
+                    <IonItem button lines="none" onClick={toggleviewOn}>
                       <IonLabel>View More</IonLabel>
                       <IonIcon slot="start" size="medium" icon={chevronDown}></IonIcon>
                     </IonItem>
-
+                  :
+                  <IonItem button lines="none" onClick={toggleviewOff}>
+                  <IonLabel>View Less</IonLabel>
+                  <IonIcon slot="start" size="medium" icon={chevronUp}></IonIcon>
+                </IonItem>
+                  }
 
               </IonCard>
             </IonCol>

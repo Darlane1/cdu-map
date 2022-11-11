@@ -7,7 +7,6 @@ import AppFooter from '../components/AppFooter';
 import  { Key, useEffect, useState } from 'react';
 import { collection, GeoPoint, getDocs, onSnapshot, where } from "firebase/firestore";
 import { db } from '../firebase';
-import Filtertoggle from '../components/ToggleFilter';
 
 
 //This button queries the Collection as a whole and sends all the data to the F12 browser dev console.
@@ -22,7 +21,17 @@ async function checkCollection(){
 export default function Tab2() {
 const [units, setUnits] = useState<any>([]);
 const [filter, setFilter] = useState(false);
-const onShow = () => setFilter(true);
+const [toggleButton, settoggleButton] = useState(true);
+
+function toggleOn(){
+  setFilter(true);
+  settoggleButton(false);
+}
+
+function toggleOff(){
+  setFilter(false);
+  settoggleButton(true);
+}
 
 
 function doRefresh(){
@@ -154,9 +163,15 @@ function SnapshotFirebase() {
 
             </IonCol>
             <IonCol size="0.5">
-                <IonItem  button onClick={onShow} lines="none">
+              {toggleButton ? 
+                <IonItem  button onClick={toggleOn} lines="none">
                   <IonIcon size="large" icon={options}></IonIcon>
                 </IonItem>
+                : 
+                <IonItem  button onClick={toggleOff} lines="none">
+                <IonIcon size="large" icon={options}></IonIcon>
+              </IonItem>
+              }
                </IonCol>
                <IonCol size="0.5">
                 <IonItem button onClick={doRefresh} lines="none">
@@ -164,8 +179,6 @@ function SnapshotFirebase() {
                 </IonItem>
                </IonCol>
           </IonRow>
-
-          <Filtertoggle/>
  
     {filter ? 
         <IonRow >
