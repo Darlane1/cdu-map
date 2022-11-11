@@ -1,4 +1,4 @@
-import { IonContent, IonCard,IonHeader, IonPage, IonTitle, IonToolbar, IonItem,IonCardHeader, IonGrid , IonRow, IonCol, IonLabel, IonCardContent,IonButton, IonCardTitle, IonIcon, IonCardSubtitle } from '@ionic/react';
+import { IonContent, IonCard,IonHeader, IonPage, IonTitle, IonToolbar, IonItem,IonCardHeader, IonGrid , IonRow, IonCol, IonLabel, IonCardContent,IonButton, IonCardTitle, IonIcon, IonCardSubtitle, IonBackButton } from '@ionic/react';
 import ExploreContainer from '../components/ExploreContainer';
 import './Tab1.css';
 import './Tab2'
@@ -100,6 +100,9 @@ function toggleviewOff(){
     <IonPage>
       <IonHeader>
         <IonToolbar>
+          <IonButton slot="start" fill='clear'>
+            <IonBackButton/>
+          </IonButton>
           <IonTitle class="ion-text-center">Map</IonTitle>
         </IonToolbar>
       </IonHeader>
