@@ -40,6 +40,7 @@
     "react-router-dom": "^5.2.0",
     "swr": "^1.3.0",
     "typescript": "^4.1.3",
+    "url-loader": "^4.1.1",
     "web-vitals": "^0.2.4",
     "workbox-background-sync": "^5.1.4",
     "workbox-broadcast-update": "^5.1.4",

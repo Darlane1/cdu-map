@@ -4,6 +4,7 @@ import './Tab3.css';
 import React,{ Component, useMemo, useState} from "react";
 import AppFooter from '../components/AppFooter';
 import { chevronBack, chevronForward } from 'ionicons/icons';
+import img1 from './images/cdu-timetable.png';
 
 export default function Tab3() {
   const [Showtimetable, setShowtimetable] = useState(false);
@@ -118,7 +119,7 @@ export default function Tab3() {
 
               {Showtimetable ? 
               <IonItem lines='none'>
-                <IonImg src='public\assets\images\cdu-timetable.png' placeholder='There should be something here'></IonImg>
+                <IonImg src={require("../assets/images/cdu-timetable.png")} placeholder='There should be something here'></IonImg>
               </IonItem>
               : null}
             

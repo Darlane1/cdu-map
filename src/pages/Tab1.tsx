@@ -36,9 +36,27 @@ const position = [
 ]
 
 var myIcon = L.icon({
-  iconUrl: 'https://ih1.redbubble.net/image.578654116.9300/raf,128x128,075,t,8DB3D2:e6f0370482.u8.jpg',
+  iconUrl: require("../assets/images/mapman.png"),
   iconSize: [38, 38],
-  iconAnchor: [22, 94],
+  iconAnchor: [19, 38],
+  popupAnchor: [-3, -76],
+  shadowSize: [68, 95],
+  shadowAnchor: [22, 94]
+});
+
+var myIcon1 = L.icon({
+  iconUrl: require("../assets/images/leaf-orange.png"),
+  iconSize: [38, 38],
+  iconAnchor: [19, 38],
+  popupAnchor: [-3, -76],
+  shadowSize: [68, 95],
+  shadowAnchor: [22, 94]
+});
+
+var myIcon2 = L.icon({
+  iconUrl: require("../assets/images/leaf-green.png"),
+  iconSize: [38, 38],
+  iconAnchor: [19, 38],
   popupAnchor: [-3, -76],
   shadowSize: [68, 95],
   shadowAnchor: [22, 94]
@@ -52,8 +70,8 @@ function MapInteractivity() {
     map.setZoom(19);
     map.setView([-12.3717852, 130.8689199]);
     L.marker([-12.3717852, 130.8689199], {icon: myIcon}).bindTooltip("got ya").openTooltip().addTo(map);
-    L.marker([-12.3747852, 130.8889199], {icon: myIcon}).addTo(map);
-    L.marker([-12.3737852, 130.8589199], {icon: myIcon}).addTo(map);
+    L.marker([-12.372838, 130.868606], {icon: myIcon1}).bindTooltip("HIT333 - Purple 6").openTooltip().addTo(map);
+    L.marker([-12.371682093847472, 130.86567742124967], {icon: myIcon2}).bindTooltip("HIT401 - Pink 3").openTooltip().addTo(map);
 
   })
 
@@ -161,7 +179,7 @@ function toggleviewOff(){
               <Marker position={[41.89016626073382, 12.492327291197707]}>
                        <MapInteractivity/>
                 <Popup>
-                Hit 372 Organisation Network Infrastructure  <br />  3rd floor room .17
+                HIT372 Organisation Network Infrastructure  <br />  3rd floor room .17
                 </Popup>
               </Marker>
             </MapContainer>
@@ -173,28 +191,12 @@ function toggleviewOff(){
 
   {units.map((unit: {
             id: Key; 
-            name:string;
-            lecturer: string;
-            bcolor: string;
-            unitcode: string;
-            geoloca: GeoPoint;
-            descr: string;
             test1: string;
             }) =>  (
-                    <IonCol>
-                      
-                      <IonCard>
-                        <IonCardHeader>
-                        <IonCardTitle class="ion-text-suck">{unit.test1} {unit.name}</IonCardTitle>
-                          <IonCardContent class="ion-text-suck">
-                          {unit.test1} <br/> 
 
-                        </IonCardContent>
-
-                      
-                  </IonCardHeader>
-                </IonCard>
-              </IonCol>
+            <IonCol>
+              {unit.test1}
+            </IonCol>
             ))}
           </IonRow>
 
