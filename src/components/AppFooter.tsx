@@ -25,7 +25,7 @@ const AppFooter: React.FC = () => {
         </IonCol>
       <IonCol offset-lg='2'>
         <IonLabel>
-            <p>Darlane Tang, James Munson, Neil, Rakib</p>
+            <p>Darlane Tang, James Munson, {'ʚ♡ɞ'} Neil {'ʚ♡ɞ'}, Rakib</p>
         </IonLabel>
         </IonCol>
       </IonRow>
